@@ -15,6 +15,7 @@ class ConcertsController < ApplicationController
 	def printable
 	end
 	def index
-		redirect_to "http://www.laroadconcerts.org/index.htm"
+		render :layout => false
+		redirect_to "http://www.laroadconcerts.org/mulholland.htm"
 	end
 end
