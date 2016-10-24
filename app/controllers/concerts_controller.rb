@@ -15,6 +15,6 @@ class ConcertsController < ApplicationController
 	def printable
 	end
 	def mulholland
-		redirect_to "http://www.laroadconcerts.org/mulholland.htm"
+		redirect_to "http://www.laroadconcerts.com/mulholland.htm"
 	end
 end
