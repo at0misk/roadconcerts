@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RoadConcerts</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <%= csrf_meta_tags %>
+<style>
+    html, body, #map{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+	.brand-logo{
+		margin-left: 1%;
+	}
+	.footer-copyright{
+		margin-left: 1%;
+	}
+	.partialcont{
+	    height: 585px !important;
+	    overflow: scroll;
+	}
+	.twittcont{
+		/*background: red;*/
+	}
+	.mapcont{
+		margin-top: 1%;
+		height: 100%;
+		width: 100%;
+		padding: 0px;
+	}
+    #map{
+        height: 350px;
+    }
+    #dropdown1 a{
+    	color: #0D47A1;
+    }
+    #mapInteractive{
+    	height: 700px;
+    }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  footer.page-footer{
+  	margin-top: 0px !important;
+  }
+  .artist{
+  	font-style: italic;
+  }
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<main>
+	<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content white">
+  <li><a href="/interactive">Interactive Map</a></li>
+  <li><a href="#!">Printable PDF</a></li>
+</ul>
+<nav>
+	<div class="nav-wrapper blue darken-4">
+		<a href="/" class="brand-logo">Los Angeles Road Concerts</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="/release">Press Release</a></li>
+			<li><a href="/call">Call for Submissions</a></li>
+			<li><a href="/artists">Participating Artists</a></li>
+			<li><a href="/download">Downloadable Art</a></li>
+			<li><a href="/past">Past Events</a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Program & Map<i class="material-icons right">arrow_drop_down</i></a></li>
+		</ul>
+	</div>
+</nav>
+<div class="container">
+<%= yield %>
+</div>
+</main>
+<footer class="page-footer blue darken-4">
+	<div class="footer-copyright">
+		© 2014 Copyright Text
+	</div>
+</footer>
+</body>
+</html>

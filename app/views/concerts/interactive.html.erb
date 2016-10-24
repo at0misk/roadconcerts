@@ -1,0 +1,42 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script>
+  function initMapInt() {
+  	console.log("init");
+    var uluru = {lat: 34.052235, lng: -118.243683};
+    var mapInteractive = new google.maps.Map(document.getElementById('mapInteractive'), {
+      zoom: 14,
+      center: uluru
+    });
+
+    var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h4 id="firstHeading" class="firstHeading">Los Angeles</h4>'+
+        '<div id="bodyContent">'+
+        '<p>Info on specific locations and artists coming soon!</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: mapInteractive,
+      title: 'Uluru (Ayers Rock)'
+    });
+    marker.addListener('click', function() {
+      infowindow.open(mapInteractive, marker);
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMapInt">
+</script>
+<div class="row">
+	<div class="col s12 mapcont">
+		<div id="mapInteractive">
+		</div>
+	</div>
+</div>
