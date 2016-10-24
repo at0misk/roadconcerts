@@ -14,8 +14,7 @@ class ConcertsController < ApplicationController
 	end
 	def printable
 	end
-	def index
-		render :layout => false
+	def mulholland
 		redirect_to "http://www.laroadconcerts.org/mulholland.htm"
 	end
 end
