@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'interactive' => 'concerts#interactive'
   get 'past' => 'concerts#past'
   get 'download' => 'concerts#download'
+  get 'printable' => 'concerts#printable'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

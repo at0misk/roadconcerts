@@ -1,48 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-<script>
-  function initMap() {
-  	console.log("init");
-    var uluru = {lat: 34.052235, lng: -118.243683};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: uluru
-    });
-
-    var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h4 id="firstHeading" class="firstHeading">Los Angeles</h4>'+
-        '<div id="bodyContent">'+
-        '<p>Info on specific locations and artists coming soon!</p>'+
-        '</div>'+
-        '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map,
-      title: 'Uluru (Ayers Rock)'
-    });
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-  }
-</script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMap">
-</script>
-<div class="row">
-	<div class="col s12 mapcont">
-		<div id="map">
-		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col s8 partialcont">
-		<h3>Press Release</h3>
 			<p>Los Angeles Road Concerts is seeking artists of all kinds to install or perform site-specific works in unused public space in Downtown Los Angeles along a loop made of 1st, Spring, 9th and Main St. as part of World Day of Remembrance for Road Traffic Victims, Sunday, November 20, 2016. Submissions may be sent through the <a href="https://goo.gl/forms/JMIEgPPblSIpXxgJ2">online form</a> or to <a href="mailto:laroadconcerts@gmail.com?Subject=Road%Concert%Submission" target="_top">laroadconcerts@gmail.com.</a></p>
 			 
 			<p>In four previous events, LA Road Concerts has shown work from over 250 Los Angeles artists in unused public outdoor space. In a “road concert” participating artists display installations, perform works, facilitate carpool happenings, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Audience members can walk, bike, skateboard, carpool or take public transit. They can time it to see it all, go it unplanned, or carefully curate their day.</p>
@@ -61,10 +16,3 @@
 			<p>Thank you,</p>
 			 
 			<p>LA Road Concerts / Stephen van Dyck</p>
-	</div>
-	<div class="col s4 twittcont">
-		            <a class="twitter-timeline"  href="https://twitter.com/hashtag/LosAngeles" data-widget-id="789237194254757888">#LosAngeles Tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
-	</div>
-</div>

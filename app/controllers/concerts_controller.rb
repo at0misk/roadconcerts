@@ -6,9 +6,12 @@ class ConcertsController < ApplicationController
 	def artists
 	end
 	def interactive
+		render :layout => false
 	end
 	def past
 	end
 	def download
+	end
+	def printable
 	end
 end
