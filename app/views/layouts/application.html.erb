@@ -46,6 +46,9 @@
     #dropdown2 a{
     	color: #0D47A1;
     }
+    #dropdown3 a{
+    	color: #0D47A1;	
+    }
     #mapInteractive{
     	height: 700px;
     }
@@ -64,6 +67,9 @@
   .artist{
   	font-style: italic;
   }
+  #dropdown3{
+  	width: 200px !important;
+  }
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -78,6 +84,12 @@
   <li><a href="/call">Call For Submissions</a></li>
   <li><a href="https://goo.gl/forms/JMIEgPPblSIpXxgJ2" target="_blank">Submission Form</a></li>
 </ul>
+<ul id="dropdown3" class="dropdown-content white">
+	<li><a href="http://laroadconcerts.com/sunset.htm">Sunset Boulevard</a></li>
+	<li><a href="http://laroadconcerts.com/washington.htm">Washington Boulevard</a></li>
+	<li><a href="http://laroadconcerts.com/sanfernando.htm">San Fernando Road</a></li>
+	<li><a href="/mulholland">Mulholland Dérive</a></li>
+</ul>
 <div class="navbar-fixed">
 <nav>
 	<div class="nav-wrapper blue darken-4">
@@ -87,8 +99,8 @@
 			<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Call For Submissions<i class="material-icons right"></i></a></li>
 			<li><a href="/artists">Participating Artists</a></li>
 			<li><a href="/download">Downloadable Art</a></li>
-			<li><a href="/past">Past Events</a></li>
 			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Program & Map<i class="material-icons right"></i></a></li>
+			<li><a class="dropdown-button" href="#!" data-activates="dropdown3">Past Events<i class="material-icons right"></i></a></li>
 		</ul>
 	</div>
 </nav>
