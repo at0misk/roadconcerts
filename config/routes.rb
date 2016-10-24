@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'past' => 'concerts#past'
   get 'download' => 'concerts#download'
   get 'printable' => 'concerts#printable'
+  get 'mulholland' => 'concerts#mulholland'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

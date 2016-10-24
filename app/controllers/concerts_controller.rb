@@ -14,4 +14,7 @@ class ConcertsController < ApplicationController
 	end
 	def printable
 	end
+	def index
+		redirect_to "http://www.laroadconcerts.org/index.htm"
+	end
 end
