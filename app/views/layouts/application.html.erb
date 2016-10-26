@@ -27,8 +27,16 @@
 	    height: 585px !important;
 	    overflow: scroll;
 	}
+	.partial-cont-scroll{
+		height: 585px !important;
+	    overflow: scroll;
+	}
 	.twittcont{
 	    height: 585px;
+	    overflow: scroll;
+	}
+	.calldiv{
+		height: 585px;
 	    overflow: scroll;
 	}
 	.mapcont{
@@ -38,7 +46,7 @@
 		padding: 0px;
 	}
     #map{
-        height: 500px;
+        height: 520px;
     }
     #dropdown1 a{
     	color: #0D47A1;
@@ -80,6 +88,27 @@
     width:20px;
     vertical-align: bottom;
     margin-right: 5px;
+  }
+  .collapsible-header{
+    width: 242px;
+  }
+  .clouds{
+  	/*opacity: 0.6;*/
+  }
+  .cloud-title{
+  	top: 0;
+  	bottom: auto;
+  	/*text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
+  }
+  .cloudcardfull{
+  	height: 585px !important;
+  }
+  .cloud-content{
+  	margin-top: 40px;
+  }
+  .app-legend li{
+  	cursor: pointer; 
+  	cursor: hand;
   }
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -143,7 +172,222 @@
     var claudio = {lat: 34.047239, lng: -118.248287};
     var mapInteractive = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      center: springPark
+      center: springPark,
+      styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#523735"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#c9b2a6"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#dcd2be"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#ae9e90"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#93817c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#a5b076"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f1e6"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fdfcf8"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f8c967"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#e9bc62"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e98d58"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway.controlled_access",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#db8555"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#806b63"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#8f7d77"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#ebe3cd"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dfd2ae"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#b9d3c2"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+]
     });
     var infowindow = new google.maps.InfoWindow();
     var contentStringReagan = '<div id="content">'+
@@ -584,7 +828,7 @@
           }
         ]
       };
-    mapInteractive.setOptions({styles: styles['hide']});
+    // mapInteractive.setOptions({styles: styles['hide']});
     mapInteractive.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend'));
   }
 </script>
@@ -599,36 +843,40 @@
 </div>
 <div class="row">
 	<div class="col s8 partialcont">
+  <ul id="legend" class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">Possible Sites</div>
+      <div class="collapsible-body app-legend">
+      <ul>
+        <li id="lapdL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/police.png">Los Angeles Police Department</li>
+        <li id="postalL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/postoffice-us.png">United States Postal Service</li>
+        <li id="reaganL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Ronald Reagan State Building</li>
+        <li id="cityhallL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Los Angeles City Hall</li>
+        <li id="indieL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/movies.png">Downtown Independent</li>
+        <li id="premL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Premiere Towers</li>
+        <li id="transL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bus.png">California Department of Transportation</li>
+        <li id="vanL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Van Nuys Appartments</li>
+        <li id="jaliscoL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bar.png">The New Jalisco Bar</li>
+        <li id="lastL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">The Last Bookstore</li>
+        <li id="springL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/tree.png">Spring Street Park</li>
+        <li id="wfATML"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/dollar.png">Wells Fargo: ATM</li>
+        <li id="loftL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">PE Lofts</li>
+        <li id="latL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/info.png">The LA Times</li>
+        <li id="smellL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">The Smell</li>
+        <li id="skidL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Skid Row Housing Trust Tenant</li>
+        <li id="imL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/woman.png">Immigration Center For Women and Children</li>
+        <li id="macL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/electronics.png">Spring Street Mac - iPhone & Mac Repair</li>
+        <li id="claudioL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">Claudio Ethos Mural</li>
+      </ul>
+      </div>
+    </li>
+  </ul>
 <%= yield %>
 	</div>
 <div class="col s4 twittcont">
 	            <a class="twitter-timeline" href="https://twitter.com/LARoadConcerts">Tweets by LARoadConcerts</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       
 </div>
-</div>
-<div id="legend">
-  <h6 id="headerL">Suggested Performance Locations and Route</h6>
-  <ul>
-    <li id="lapdL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/police.png">Los Angeles Police Department</li>
-    <li id="postalL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/postoffice-us.png">United States Postal Service</li>
-    <li id="reaganL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Ronald Reagan State Building</li>
-    <li id="cityhallL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Los Angeles City Hall</li>
-    <li id="indieL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/movies.png">Downtown Independent</li>
-    <li id="premL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Premiere Towers</li>
-    <li id="transL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bus.png">California Department of Transportation</li>
-    <li id="vanL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Van Nuys Appartments</li>
-    <li id="jaliscoL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bar.png">The New Jalisco Bar</li>
-    <li id="lastL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">The Last Bookstore</li>
-    <li id="springL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/tree.png">Spring Street Park</li>
-    <li id="wfATML"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/dollar.png">Wells Fargo: ATM</li>
-    <li id="loftL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">PE Lofts</li>
-    <li id="latL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/info.png">The LA Times</li>
-    <li id="smellL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">The Smell</li>
-    <li id="skidL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Skid Row Housing Trust Tenant</li>
-    <li id="imL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/woman.png">Immigration Center For Women and Children</li>
-    <li id="macL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/electronics.png">Spring Street Mac - iPhone & Mac Repair</li>
-    <li id="claudioL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">Claudio Ethos Mural</li>
-  </ul>
 </div>
 </main>
 <footer class="page-footer blue darken-4">
