@@ -1445,10 +1445,7 @@ markerGlasgow.addListener('click', function(){
     .gm-style-iw{
       left: 25px !important;
     }
-  .mobilep{
-  display: none;
-}
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media screen and (min-width: 0px) and (max-width: 480px) {
 .parallax {
 /*background-attachment: scroll !important;*/
 height: 30%;
@@ -1461,7 +1458,7 @@ width: 100%;
   display: none !important;
 }
 .mobilep{
-  display: block;
+  display: block !important;
 }
 #about{
   height: 1210px;
@@ -1473,7 +1470,9 @@ width: 100%;
   display: none !important;
 }
 }
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+@media only screen and (min-device-width: 480px) and (max-device-width: 1600px) {
+  .mobilep{
+  display: none;
 }
 }
    </style>
