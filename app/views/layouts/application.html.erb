@@ -1,154 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Los Angeles Road Concerts</title>
+  <title>LA Road Concerts</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   <%= csrf_meta_tags %>
-<style>
-    html, body, #map{
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-    }
-	.brand-logo{
-		margin-left: 1%;
-	}
-	.footer-copyright{
-		margin-left: 1%;
-	}
-	.partialcont{
-	    height: 585px !important;
-	    /*overflow: scroll;*/
-	}
-	.partial-cont-scroll{
-		height: 585px !important;
-	    overflow: scroll;
-	}
-	.twittcont{
-	    height: 585px;
-	    overflow: scroll;
-	}
-	.calldiv{
-		height: 585px;
-	    overflow: scroll;
-	}
-	.mapcont{
-		margin-top: 1%;
-		height: 100%;
-		width: 100%;
-		padding: 0px;
-	}
-    #map{
-        height: 520px;
-    }
-    #dropdown1 a{
-    	color: #0D47A1;
-    }
-    #dropdown2 a{
-    	color: #0D47A1;
-    }
-    #dropdown3 a{
-    	color: #0D47A1;	
-    }
-    #mapInteractive{
-    	height: 700px;
-    }
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+   <script>
 
-  main {
-    flex: 1 0 auto;
-  }
-  footer.page-footer{
-  	margin-top: 0px !important;
-  }
-  .artist{
-  	font-style: italic;
-  }
-  #dropdown3{
-  	width: 200px !important;
-  }
-  #legend {
-    background: white;
-    padding: 10px;
-    margin-left: 10px;
-  }
-  .iconL{
-    height:20px;
-    width:20px;
-    vertical-align: bottom;
-    margin-right: 5px;
-  }
-  .collapsible-header{
-    width: 242px;
-  }
-  .clouds{
-  	/*opacity: 0.6;*/
-  }
-  .cloud-title{
-  	top: 0;
-  	bottom: auto;
-  	/*text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
-  }
-  .cloudcardfull{
-  	height: 585px !important;
-  }
-  .cloud-content{
-  	margin-top: 40px;
-  }
-  .app-legend li{
-  	cursor: pointer; 
-  	cursor: hand;
-  }
-</style>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-<main>
-	<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content white">
-  <li><a href="/interactive">Interactive Map</a></li>
-  <li><a href="/printable">Printable PDF</a></li>
-</ul>
-<ul id="dropdown2" class="dropdown-content white">
-  <li><a href="/call">Call For Submissions</a></li>
-  <li><a href="https://goo.gl/forms/JMIEgPPblSIpXxgJ2" target="_blank">Submission Form</a></li>
-</ul>
-<ul id="dropdown3" class="dropdown-content white">
-	<li><a href="http://laroadconcerts.com/sunset.htm">Sunset Boulevard</a></li>
-	<li><a href="http://laroadconcerts.com/washington.htm">Washington Boulevard</a></li>
-	<li><a href="http://laroadconcerts.com/sanfernando.htm">San Fernando Road</a></li>
-	<li><a href="/mulholland">Mulholland Dérive</a></li>
-</ul>
-<div class="navbar-fixed">
-<nav>
-	<div class="nav-wrapper blue darken-4">
-		<a href="/" class="brand-logo">Los Angeles Road Concerts</a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="/release">Press Release</a></li>
-			<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Call For Submissions<i class="material-icons right"></i></a></li>
-			<li><a href="/artists">Participating Artists</a></li>
-			<li><a href="/download">Downloadable Art</a></li>
-			<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Program & Map<i class="material-icons right"></i></a></li>
-			<!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown3">Past Events<i class="material-icons right"></i></a></li> -->
-		</ul>
-	</div>
-</nav>
-</div>
-<div class="container">
+function fadeCB(callback){
+  $('.formOut').fadeOut(600);
+  callback;
+}
+
+function fadeIn(){
+  $('.formIn').fadeIn(600);
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+    $(document).ready(function(){
+      $('.parallax').parallax();
+      $('.scrollspy').scrollSpy();
+      $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+        var options = [
+        {selector: '.first-text', offset: 600, callback: function(){
+          $('.tabs-wrapper').fadeIn(1100);
+          console.log('hit');
+        }},
+        {selector: '.first-text', offset: 400, callback: function() {
+          Materialize.showStaggeredList($('#staggered'));
+        }},
+        {selector: '.second-text', offset: 400, callback: function() {
+          Materialize.showStaggeredList($('#second-staggered'));
+        }},
+        {selector: '#bottom', offset: 0, callback: function(){
+          $('.twittcont').removeClass('noscroll');
+          console.log('hit bottom');
+        }}
+      ];
+      Materialize.scrollFire(options);
+      $('#mailerform').on('submit', function(){
+      var valuesToSubmit = $(this).serialize();
+      $.ajax({
+          type: "POST",
+          url: "/mail", //sumbits it to the given url of the form
+          data: valuesToSubmit,
+          success: function(result){
+            $('.formOut').fadeOut(600, function(){
+              $('.formIn').fadeIn(600);
+            });
+          } // you want a difference between normal and ajax-calls, and json is standard
+      })
+      return false; // prevents normal behaviour
+    });
+      $('#pr').on('click', function(){
+        $('.fl1').click();
+      })
+      $('#cf').on('click', function(){
+        $('.fl2').click();
+      })
+    });
+   </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script>
-  function initMap() {
+  function initMapInt() {
     console.log("init");
     var uluru = {lat: 34.052235, lng: -118.243683};
     var reagan = {lat: 34.0494, lng: -118.2468};
@@ -170,9 +91,29 @@
     var springMac = {lat: 34.045527, lng: -118.250917};
     var postal = {lat: 34.046985, lng: -118.249470};
     var claudio = {lat: 34.047239, lng: -118.248287};
-    var mapInteractive = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: springPark,
+    var glasgow = {lat: 34.048500, lng: -118.246964};
+    var barclay = {lat: 34.048344, lng: -118.247099};
+    var smain = {lat: 34.046175, lng: -118.249115};
+    var hi = {lat: 34.044047, lng: -118.251130};
+    var caged = {lat: 34.043967, lng: -118.251183};
+    var fjah = {lat: 34.043949, lng: -118.251237};
+    var obsc = {lat: 34.04349, lng: -118.252208};
+    var fdc = {lat: 34.042300, lng: -118.253996};
+    var treetriangle = {lat: 34.041998, lng: -118.254564};
+    var bikelane = {lat: 34.041909, lng: -118.254854};
+    var publicphone = {lat: 34.042830, lng: -118.253997};
+    var detour = {lat: 34.043806, lng: -118.253079};
+    var tables = {lat: 34.045050, lng: -118.251932};
+    var arcade = {lat: 34.046452, lng: -118.250554};
+    var theatrecenter = {lat: 34.046787, lng: -118.250015};
+    var caffeine = {lat: 34.047281, lng: -118.249598};
+    var heart = {lat: 34.043230, lng: -118.253621};
+    var concrete = {lat: 34.044307, lng: -118.252622};
+    var sspark = {lat: 34.047889, lng: -118.249050};
+    var cone = {lat: 34.048458, lng: -118.247665};
+    var mapInteractive = new google.maps.Map(document.getElementById('mapInteractive'), {
+      zoom: 16,
+      center: postal,
       styles: [
   {
     "elementType": "geometry",
@@ -387,7 +328,8 @@
       }
     ]
   }
-]
+],
+    scrollwheel:  false
     });
     var infowindow = new google.maps.InfoWindow();
     var contentStringReagan = '<div id="content">'+
@@ -402,6 +344,166 @@
         '<div id="siteNotice">'+
         '</div>'+
         '<h6>Los Angeles City Hall</h6>'+
+        '</div>';
+    var contentStringGlasgow = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>The Glasgow Tailors</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('glasgow.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringBarclay = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Hotel Barclay</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('barclay.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringSmain = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>545 S Main St.</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('545.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringHi = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Hi Sushi</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('hi.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringCaged = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Caged Area</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('caged.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringFjah = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>F JAH</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('fjah.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringObsc = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Building Obscuring Name</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('obsc.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringFdc = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>FDC Truck</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('fdc.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringTreetriangle = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Tree Triangle</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('treetriangle.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringBikelane = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Bike Lane</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('bikelane.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringPublicphone = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>ATM / Public Phone</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('publicphone.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringDetour = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Detour Space</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('detour.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringTables = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Some Tables</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('tables.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringArcade = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Spring Arcade Building</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('arcade.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringTheatreCenter = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Los Angeles Theatre Center</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('theatrecenter.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringCaffeine = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Caffeine Food Love</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('caffeine.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringHeart = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Heart Box</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('heart.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringConcrete = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Concrete Nook</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('concrete.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringSSPark = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Spring Street Park</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('sspark.jpg') %>" + "></img>" +
+        '</div>'+
+        '</div>';
+    var contentStringCone = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Cone / Alley</h6>'+
+        '<div class="mapBodyContent">'+
+        "<img src=" + "<%= escape_javascript asset_path('cone.jpg') %>" + "></img>" +
+        '</div>'+
         '</div>';
     var contentStringIndie = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -492,115 +594,235 @@
       position: reagan,
       map: mapInteractive,
       title: 'Ronald Reagan State Building',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('statebuilding_icon.png') %>"
     });
     var markerCityHall = new google.maps.Marker({
       position: cityHall,
       map: mapInteractive,
       title: 'Los Angeles City Hall',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('statebuilding_icon.png') %>"
     });
     var markerIndie = new google.maps.Marker({
       position: indie,
       map: mapInteractive,
       title: 'Downtown Independent',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/movies.png'
+      icon: "<%= escape_javascript asset_path('camera_icon.png') %>"
     });
     var markerSmell = new google.maps.Marker({
       position: smell,
       map: mapInteractive,
       title: 'The Smell',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/arts.png'
+      icon: "<%= escape_javascript asset_path('music_icon.png') %>"
     });
     var markerJalisco = new google.maps.Marker({
       position: jalisco,
       map: mapInteractive,
       title: 'The New Jalisco Bar',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/bar.png'
+      icon: "<%= escape_javascript asset_path('bottle_icon.png') %>"
     });
     var markerLast = new google.maps.Marker({
       position: last,
       map: mapInteractive,
       title: 'The Last Bookstore',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('book_icon.png') %>"
     });
     var markerSpringPark = new google.maps.Marker({
       position: springPark,
       map: mapInteractive,
       title: 'Spring Street Park',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/tree.png'
+      icon: "<%= escape_javascript asset_path('park_icon.png') %>"
     });
     var markerWfAtm = new google.maps.Marker({
       position: wfATM,
       map: mapInteractive,
       title: 'Wells Fargo: ATM',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/dollar.png'
+      icon: "<%= escape_javascript asset_path('dollar_icon.png') %>"
     });
     var markerLATimes = new google.maps.Marker({
       position: times,
       map: mapInteractive,
       title: 'Los Angeles Times',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/info.png'
+      icon: "<%= escape_javascript asset_path('news_icon.png') %>"
     });
     var markerLAPD = new google.maps.Marker({
       position: lapd,
       map: mapInteractive,
       title: 'Los Angeles Police Department',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/police.png'
+      icon: "<%= escape_javascript asset_path('police_icon.png') %>"
     });
     var markerTransport = new google.maps.Marker({
       position: transport,
       map: mapInteractive,
       title: 'California Department of Transportation (Caltrans)',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/bus.png'
+      icon: "<%= escape_javascript asset_path('bus_icon.png') %>"
     });
     var markerSkid = new google.maps.Marker({
       position: skid,
       map: mapInteractive,
       title: 'Skid Row Housing Trust Tenant',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('house_icon.png') %>"
     });
     var markerLofts = new google.maps.Marker({
       position: lofts,
       map: mapInteractive,
       title: 'PE Lofts',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
     });
     var markerVanNuys = new google.maps.Marker({
       position: vanNuys,
       map: mapInteractive,
       title: 'Van Nuys Apartments',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
     });
     var markerPremiere = new google.maps.Marker({
       position: premiere,
       map: mapInteractive,
       title: 'Premiere Towers',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png'
+      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
     });
     var markerImmigration = new google.maps.Marker({
       position: immigration,
       map: mapInteractive,
       title: 'Immigration Center For Women and Children',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/woman.png'
+      icon: "<%= escape_javascript asset_path('woman_icon.png') %>"
     });
     var markerSpringMac = new google.maps.Marker({
       position: springMac,
       map: mapInteractive,
       title: 'Spring Street Mac - iPhone & Mac Repair',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/electronics.png'
+      icon: "<%= escape_javascript asset_path('apple_icon.png') %>"
     });
     var markerPostal = new google.maps.Marker({
       position: postal,
       map: mapInteractive,
       title: 'United States Postal Service',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/postoffice-us.png'
+      icon: "<%= escape_javascript asset_path('mail_icon.png') %>"
     });
     var markerClaudio = new google.maps.Marker({
       position: claudio,
       map: mapInteractive,
       title: 'Claudio Ethos Mural',
-      icon: 'https://maps.gstatic.com/mapfiles/ms2/micons/arts.png'
+      icon: "<%= escape_javascript asset_path('art_icon.png') %>"
+    });
+    var markerGlasgow = new google.maps.Marker({
+      position: glasgow,
+      map: mapInteractive,
+      title: 'Claudio Ethos Mural',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerBarclay = new google.maps.Marker({
+      position: glasgow,
+      map: mapInteractive,
+      title: 'Hotel Barclay',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerSmain = new google.maps.Marker({
+      position: smain,
+      map: mapInteractive,
+      title: 'Hotel Barclay',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerHi = new google.maps.Marker({
+      position: hi,
+      map: mapInteractive,
+      title: 'Hotel Barclay',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerCaged = new google.maps.Marker({
+      position: caged,
+      map: mapInteractive,
+      title: 'Hotel Barclay',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerFjah = new google.maps.Marker({
+      position: fjah,
+      map: mapInteractive,
+      title: 'Hotel Barclay',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerObsc = new google.maps.Marker({
+      position: obsc,
+      map: mapInteractive,
+      title: 'Building Obscuring Name',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerFdc = new google.maps.Marker({
+      position: fdc,
+      map: mapInteractive,
+      title: 'FDC Truck',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerTreetriangle = new google.maps.Marker({
+      position: treetriangle,
+      map: mapInteractive,
+      title: 'Tree Triangle',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerBikelane = new google.maps.Marker({
+      position: bikelane,
+      map: mapInteractive,
+      title: 'Bike Lane',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerPublicphone = new google.maps.Marker({
+      position: publicphone,
+      map: mapInteractive,
+      title: 'Bike Lane',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerDetour = new google.maps.Marker({
+      position: detour,
+      map: mapInteractive,
+      title: 'Detour Space',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerTables = new google.maps.Marker({
+      position: tables,
+      map: mapInteractive,
+      title: 'Some Tables',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerArcade = new google.maps.Marker({
+      position: arcade,
+      map: mapInteractive,
+      title: 'Spring Arcade Building',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerTheatreCenter = new google.maps.Marker({
+      position: theatrecenter,
+      map: mapInteractive,
+      title: 'Los Angeles Theatre Center',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerCaffeine = new google.maps.Marker({
+      position: caffeine,
+      map: mapInteractive,
+      title: 'Caffeine Food Love',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerHeart = new google.maps.Marker({
+      position: heart,
+      map: mapInteractive,
+      title: 'Heart Box',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerConcrete = new google.maps.Marker({
+      position: concrete,
+      map: mapInteractive,
+      title: 'Concrete Nook',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerSSPark = new google.maps.Marker({
+      position: sspark,
+      map: mapInteractive,
+      title: 'Spring Street Park',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+    });
+    var markerCone = new google.maps.Marker({
+      position: cone,
+      map: mapInteractive,
+      title: 'Cone / Alley',
+      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
     });
     markerReagan.addListener('click', function(){
     infowindow.close()
@@ -611,6 +833,206 @@
     infowindow.close();
     infowindow.setContent(contentStringReagan);
     infowindow.open(mapInteractive, markerReagan);
+    });
+    markerGlasgow.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringGlasgow);
+    infowindow.open(mapInteractive, markerGlasgow);
+    });
+    $('#glasgow').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringGlasgow);
+    infowindow.open(mapInteractive, markerGlasgow);
+    });
+    markerBarclay.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringBarclay);
+    infowindow.open(mapInteractive, markerBarclay);
+    });
+    $('#barclay').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringBarclay);
+    infowindow.open(mapInteractive, markerBarclay);
+    });
+    markerSmain.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringSmain);
+    infowindow.open(mapInteractive, markerSmain);
+    });
+    $('#Smain').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringSmain);
+    infowindow.open(mapInteractive, markerSmain);
+    });
+    markerHi.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringHi);
+    infowindow.open(mapInteractive, markerHi);
+    });
+    $('#hi').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringHi);
+    infowindow.open(mapInteractive, markerHi);
+    });
+    markerCaged.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringCaged);
+    infowindow.open(mapInteractive, markerCaged);
+    });
+    $('#caged').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringCaged);
+    infowindow.open(mapInteractive, markerCaged);
+    });
+    markerFjah.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringFjah);
+    infowindow.open(mapInteractive, markerFjah);
+    });
+    $('#fjah').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringFjah);
+    infowindow.open(mapInteractive, markerFjah);
+    });
+    markerObsc.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringObsc);
+    infowindow.open(mapInteractive, markerObsc);
+    });
+    $('#obsc').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringObsc);
+    infowindow.open(mapInteractive, markerObsc);
+    });
+    markerFdc.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringFdc);
+    infowindow.open(mapInteractive, markerFdc);
+    });
+    $('#fdc').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringFdc);
+    infowindow.open(mapInteractive, markerFdc);
+    });
+    markerTreetriangle.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringTreetriangle);
+    infowindow.open(mapInteractive, markerTreetriangle);
+    });
+    $('#treetriangle').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringTreetriangle);
+    infowindow.open(mapInteractive, markerTreetriangle);
+    });
+    markerBikelane.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringBikelane);
+    infowindow.open(mapInteractive, markerBikelane);
+    });
+    $('#bikelane').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringBikelane);
+    infowindow.open(mapInteractive, markerBikelane);
+    });
+    markerPublicphone.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringPublicphone);
+    infowindow.open(mapInteractive, markerPublicphone);
+    });
+    $('#publicphone').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringPublicphone);
+    infowindow.open(mapInteractive, markerPublicphone);
+    });
+    markerDetour.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringDetour);
+    infowindow.open(mapInteractive, markerDetour);
+    });
+    $('#detour').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringDetour);
+    infowindow.open(mapInteractive, markerDetour);
+    });
+    markerTables.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringTables);
+    infowindow.open(mapInteractive, markerTables);
+    });
+    $('#tables').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringTables);
+    infowindow.open(mapInteractive, markerTables);
+    });
+    markerArcade.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringArcade);
+    infowindow.open(mapInteractive, markerArcade);
+    });
+    $('#arcade').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringArcade);
+    infowindow.open(mapInteractive, markerArcade);
+    });
+    markerTheatreCenter.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringTheatreCenter);
+    infowindow.open(mapInteractive, markerTheatreCenter);
+    });
+    $('#theatrecenter').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringTheatreCenter);
+    infowindow.open(mapInteractive, markerTheatreCenter);
+    });
+    markerCaffeine.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringCaffeine);
+    infowindow.open(mapInteractive, markerCaffeine);
+    });
+    $('#caffeine').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringCaffeine);
+    infowindow.open(mapInteractive, markerCaffeine);
+    });
+    markerHeart.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringHeart);
+    infowindow.open(mapInteractive, markerHeart);
+    });
+    $('#heart').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringHeart);
+    infowindow.open(mapInteractive, markerHeart);
+    });
+    markerConcrete.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringConcrete);
+    infowindow.open(mapInteractive, markerConcrete);
+    });
+    $('#concrete').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringConcrete);
+    infowindow.open(mapInteractive, markerConcrete);
+    });
+    markerSSPark.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringSSPark);
+    infowindow.open(mapInteractive, markerSSPark);
+    });
+    $('#sspark').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringSSPark);
+    infowindow.open(mapInteractive, markerSSPark);
+    });
+    markerCone.addListener('click', function(){
+    infowindow.close()
+    infowindow.setContent(contentStringCone);
+    infowindow.open(mapInteractive, markerCone);
+    });
+    $('#cone').click(function(){
+    infowindow.close();
+    infowindow.setContent(contentStringCone);
+    infowindow.open(mapInteractive, markerCone);
     });
     markerCityHall.addListener('click', function(){
     infowindow.close()
@@ -808,7 +1230,7 @@
         var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
-          strokeColor: '#FF0000',
+          strokeColor: '#039be5',
           strokeOpacity: 1.0,
           strokeWeight: 2
         });
@@ -830,58 +1252,431 @@
       };
     // mapInteractive.setOptions({styles: styles['hide']});
     mapInteractive.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend'));
+    // mapInteractive.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend2'));
   }
 </script>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMapInt">
 </script>
-<div class="row">
-	<div class="col s12 mapcont">
-		<div id="map">
-		</div>
-	</div>
+   <style>
+   *{
+    font-family: 'Lora', sans-serif;
+   }
+    html, body, #map{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .par1{
+      height: 885px !important;
+      text-align: center;
+    }
+    .main-header{
+      margin-top: 17%;
+      color: white;
+      margin-bottom: 0;
+    }
+    .main-sub{
+      margin-top: 0%;
+      margin-bottom: 0;
+      color: white;
+    }
+    .par2{
+      text-align: center;
+    }
+    .call-header{
+      margin-top: 15%;
+      color: white;
+      margin-bottom: 0;
+    }
+  #legend {
+    background: white;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 1.15em;
+  }
+  .iconL{
+    height:20px;
+    width:20px;
+    vertical-align: bottom;
+    margin-right: 5px;
+  }
+  #legend img{
+    height:20px;
+    width:20px;
+    vertical-align: bottom;
+    margin-right: 5px;
+  }
+  .intHead{
+        margin-bottom: 0px !important;
+  }
+  .collapsible-header{
+    width: 242px;
+  }
+  #legend li{
+    cursor: pointer; 
+    cursor: hand;
+  }
+  .mapcont{
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+  }
+  #mapInteractive{
+    height: 700px;
+  }
+  .twittcont{
+      height: 850px;
+      overflow: scroll;
+  }
+  /*// Class for when element is above threshold*/
+  .pin-top {
+    position: relative;
+  }
+
+  /*// Class for when element is below threshold*/
+  .pin-bottom {
+    position: relative;
+  }
+
+  /*// Class for when element is pinned*/
+  .pinned {
+    position: fixed !important;
+    background: white;
+    padding: 11px;
+    z-index: 99 !important;
+    right: 0;
+    height: 900px;
+  }
+  .hidden{
+    display: none;
+  }
+  .noscroll{
+    overflow: hidden !important;
+  }
+  .first-text{
+    height: 600px;
+  }
+  .second-text{
+    height: 700px;
+  }
+  #staggered li{
+    opacity: 0;
+  }
+  #second-staggered li{
+    opacity: 0;
+  }
+  .formIn{
+    display: none;
+    margin-top: 5%;
+  }
+  .text-activator{
+    height: 500px;
+    padding: 70px;
+  }
+  .par1 h1{
+    font-size: 10em;
+  }
+  .par1 h3{
+    font-size: 6em;
+  }
+  .par1 h4{
+    font-size: 5em;
+  }
+  .fakelink{
+    color: #039be5;
+  }
+  .table-of-contents a.active {
+    border-left: 2px solid #039be5;
+  }
+  .table-of-contents a:hover {
+    border-left: 1px solid #039be5;
+  }
+  .submission-form a{
+    font-size: 0.8em;
+  }
+  .submission-form li{
+    margin-left: 20px;
+  }
+  .sub-form-row{
+    text-align: center;
+  }
+  .btn{
+    margin: 0 auto;
+    background-color: #039be5;
+    display: block;
+  }
+  .btn:hover{
+    background-color: #039be5;
+  }
+   form input[type=text]:focus {
+     border-bottom: 1px solid #039be5 !important;
+     box-shadow: 0 1px 0 0 #039be5 !important;
+   }
+   form input[type=text]:focus + label {
+     color: #039be5 !important;
+   }
+   input{
+    width: 50% !important;
+    display: inline-block;
+   }
+   .input-field .prefix.active {
+      color: #039be5;
+    }
+    .par3{
+      height: auto;
+    }
+    #pdf:hover{
+      cursor: pointer;
+    }
+    #pastevents:hover{
+      cursor: pointer;
+    }
+    #es{
+      /*right: 0;*/
+      position: absolute;
+      margin: 20px;
+      z-index: 99 !important;
+    }
+    .mapBodyContent img{
+      width: 250px;
+      height: 444px;
+    }
+    .gm-style-iw{
+      left: 25px !important;
+    }
+   </style>
+</head>
+<body>
+  <div class="tabs-wrapper hidden">
+    <div class="row">
+    <div class="col hide-on-small-only m3 l2">
+      <ul class="section table-of-contents">
+        <li><a href="#about" id="pr">Press Release</a></li>
+        <li><a href="#call" id="cf">Call For Submissions</a></li>
+        <li><a href="#mailinglist">Mailing List</a></li>
+        <span class="submission-form"><li><a href="https://goo.gl/forms/JMIEgPPblSIpXxgJ2" target="_blank">Submission Form</a></li></span>
+        <li><a href="#map">Interactive Map</a></li>
+        <span class="submission-form"><li><a id="pdf" onclick="Materialize.toast('PDF Coming Soon', 2000)">Printable PDF</a></li></span>
+        <li><a href="#social">Twitter Instagram</a></li>
+        <li><a href="https://www.facebook.com/laroadconcerts/" target="_blank">Facebook</a></li>
+        <li><a id="pastevents">Past Events</a></li>
+        <span class="submission-form"><li><a href="https://laroadconcerts.github.io/" id="pdf" target="_blank">Mulholland Dérive</a></li></span>
+        <span class="submission-form"><li><a href="https://laroadconcerts.github.io/washington.htm" id="pdf" target="_blank">Washington Blvd</a></li></span>
+        <span class="submission-form"><li><a href="https://laroadconcerts.github.io/sunset.htm" id="pdf" target="_blank">Sunset Blvd</a></li></span>
+        <span class="submission-form"><li><a href="https://laroadconcerts.github.io/sanfernando.htm" id="pdf" target="_blank">San Fernando</a></li></span>
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="row">
-	<div class="col s8 partialcont">
-  <ul id="legend" class="collapsible" data-collapsible="accordion">
+  <div class="parallax-container par1" title="painting by Tracy Molis">
+    <form action="/es" method="get">
+    <button class="btn waves-effect waves-light light-blue" type="submit" name="action" id="es">Ver en Español</button>
+    </form>
+      <a href="#about"><h1 class="main-header">LA Road Concerts</h1>
+      <h3 class="main-sub">A Day Of Rememberance</h3>
+      <h3 class="main-sub">11.20.16</h3>
+      <h4 class="main-sub">DTLA</h4></a>
+    <div class="parallax">
+      <%= image_tag 'bg1.png' %>
+    </div>
+  </div>
+  <div class="row container section scrollspy" id="about">
+  <div class="section white first-text">
+      <ul id="staggered">
+        <li>
+    <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <div class="text-activator activator"><h2 class="activator">LA Road Concerts is an ongoing series of daylong art, music, literary and performance extravaganzas happening in LA's unused public spaces.  <span class="fakelink activator fl1">Press Release</span>.</h2></div>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Press Release<i class="material-icons right">close</i></span>
+<p>Day of Remembrance Road Concert</p>
+
+<p>site-specific works along 1st, Spring, 9th and Main in Downtown Los Angeles</p>
+
+<p>Los Angeles Road Concerts presents a showing of site-specific projects from Los Angeles artists in unused public outdoor spaces along a loop made of Spring St, 9th St, Main St and 1st St. For one day participating artists display installations, perform works, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Audience members can walk, bike, skateboard, carpool or take public transit. They can time it to see it all, go it unplanned, or carefully curate their day. An official map of the day’s events along with project descriptions and other downloadable information will be available to the public starting a week before the event on the event website.</p>
+
+<p>LA Road Concerts seeks to investigate the possibilities of LA's streets as sites for artistic exploration while offering a street-level window onto the city's diversity of people, buildings and landscapes, how the metropolis grew and cars came to dominate, and the in-between and negative spaces the city left behind as it expanded. Through a wide open call process, LA Road Concerts brings together art school graduates, working artists, local residents and other artists, writers, musicians, performers, to realize a broad array of kinds of interactions with the sites.</p>
+
+<p>This particular road concert is part of the annual World Day of Remembrance for Road Traffic Victims (<a href="http://worlddayofremembrance.org" target="_blank">http://worlddayofremembrance.org</a>), commemorating the many millions killed and injured on the world’s roads, together with their families and communities. For pedestrians, Downtown LA is the most dangerous area of the most dangerous US city. Over 600 people on foot were hit by cars in Downtown LA over 12 years, averaging a person a week.This road concert asks participating artists of any medium to make works that bring awareness to traffic casualties, ponder solutions and utopias, remember the victims, investigate car culture, and explore the complexity of the problem, such as what causes people to make dangerous decisions like texting or drinking while driving, or how our transit systems reflect America's race and class inequalities and privilege the able bodied.</p>
+
+<p>A list of the day's participating artists will be announced closer to the date of the event. Previous road concerts showed the work of over 200 artists, including Marnie Weber, Todd Gray, Julie Tolentino, Ramiro Gomez Jr, Christine Wang, John Kilduff, Marc Horowitz, Fallen Fruit, Sheree Rose, West Hollywood Councilman John D'Amico, Margaret Wappler, Solomon Bothwell, Julia Holter, Kate Durbin, Christine Wang, Kim Ye, Jim Skuldt, Vincent Ramos, and many more artists.</p>
+
+<p>November 20, 2016</p>
+
+<p>FREE</p>
+    </div>
+  </div>
+</li>
+      </ul>
+</div>
+</div>
+  <div class="parallax-container par2" title="painting by Ramiro Gomez Jr">
+    <h3 class="call-header">Call For Submissions</h3>
+    <div class="parallax">
+      <%= image_tag 'construction.jpg' %>
+    </div>
+  </div>
+  <div class="section white">
+    <div class="row container section scrollspy" id="call">
+  <div class="section white second-text">
+      <ul id="second-staggered">
+        <li>
+             <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <div class="text-activator activator"><h2 class="activator">LA Road Concerts is seeking artists of all kinds to install or perform works in unused public space in DTLA on Nov 20.  <span class="fakelink activator fl2">Call For Submissions</span>.</h2></div>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Call For Submissions<i class="material-icons right">close</i></span>
+          <p>Los Angeles Road Concerts is seeking artists of all kinds to install or perform site-specific works in unused public space in Downtown Los Angeles along a loop made of 1st, Spring, 9th and Main St. as part of World Day of Remembrance for Road Traffic Victims, Sunday, November 20, 2016. Submissions may be sent through the <a href="https://goo.gl/forms/JMIEgPPblSIpXxgJ2" target="_blank">online form</a> or to <a href="mailto:laroadconcerts@gmail.com?Subject=Road%Concert%Submission" target="_top">laroadconcerts@gmail.com.</a></p>
+
+          <p>In four previous events, LA Road Concerts has shown work from over 250 Los Angeles artists in unused public outdoor space. In a “road concert” participating artists display installations, perform works, facilitate carpool happenings, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Audience members can walk, bike, skateboard, carpool or take public transit. They can time it to see it all, go it unplanned, or carefully curate their day.</p>
+
+           <p>LA Road Concerts seeks to investigate the possibilities of LA's streets as sites for artistic exploration while offering a street-level window onto the city's diversity of people, buildings and landscapes, how the metropolis grew and cars came to dominate, and the in-between and negative spaces the city left behind as it expanded. Through a wide open call process, LA Road Concerts brings together art school graduates, working artists, local residents and other artists, writers, musicians, performers, to realize a broad array of kinds of interactions with the sites.</p>
+
+            <p>This particular road concert is part of the annual World Day of Remembrance for Road Traffic Victims (<a href="http://worlddayofremembrance.org">http://worlddayofremembrance.org</a>), commemorating the many millions killed and injured on the world’s roads, together with their families and communities. For pedestrians, DTLA is the most dangerous area of the most dangerous US city. Over 600 people on foot were hit by cars in DTLA over 12 years, averaging a person a week. More facts and statistics can be found <a href="https://docs.google.com/document/d/11GUiZrdHXPIGHpcy2MaaYZOWObT--oH9xzhE0p49Ow8/edit">here</a>. This road concert asks participating artists of any medium to make works that bring awareness to traffic casualties, ponder solutions and utopias, remember the victims, investigate car culture, and explore the complexity of the problem, such as what causes people to make dangerous decisions like texting or drinking while driving, or how our transit systems reflect America's race and class inequalities and privilege the able bodied.</p>
+
+            <p>Please contact us with any proposals, questions, or suggestions at <a href="mailto:laroadconcerts@gmail.com?Subject=Road%Concert%Submission" target="_top">laroadconcerts@gmail.com.</a>. Or feel free to call or text me (Stephen van Dyck) at <a href="tel:505-331-9588" value="+15033319588" target="_blank">505-331-9588</a> to discuss your potential submission. And please forward this along to anyone who you think would be interested in getting involved.</p>
+             
+            <p>Thank you,</p>
+             
+            <p>LA Road Concerts / Stephen van Dyck</p>
+    </div>
+  </div>
+        </li>
+      </ul>
+</div>
+    </div>
+  </div>
+    <div class="parallax-container par2" title="Wind Chimes by Carolyn Chen">
+    <h3 class="call-header">Mailing List</h3>
+    <div class="parallax">
+      <%= image_tag 'cardboard.jpg' %>
+    </div>
+  </div>
+    <div class="section white">
+      <div class="row container section scrollspy" id="mailinglist">
+        <div class="section white">
+        <div class="parallax-container par3">
+          <div class="row sub-form-row">
+          <div class="col s12 formOut">
+            <h4>Join the mailing list to stay updated!</h4>
+            <form action='/mail' method='post' data-remote="false" id='mailerform'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person</i>
+              <input type="text" name="first" placeholder="First Name">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_outline</i>
+              <input type="text" name="last" placeholder="Last Name">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input type="text" name="email" placeholder="Email">
+            </div>
+              <button class="btn waves-effect waves-light light-blue" type="submit" name="action">Join</button>
+            </form>
+          </div>
+          <div class="col s12 formIn">
+            <h4>Thank you for joining the mailing list!</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container par2" title="Idea Truck by Lorri Deyer">
+    <h3 class="call-header">Route and Possible Locations</h3>
+    <div class="parallax">
+      <%= image_tag 'ideatruck.jpg' %>
+    </div>
+  </div>
+  <div class="container">
+  <div class="section white mapcont section scrollspy" id="map">
+    <div class="col s12 mapcont">
+    <div id="mapInteractive">
+    </div>
+<ul id="legend" class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header">Possible Sites</div>
-      <div class="collapsible-body app-legend">
+      <div class="collapsible-body">
       <ul>
-        <li id="lapdL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/police.png">Los Angeles Police Department</li>
-        <li id="postalL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/postoffice-us.png">United States Postal Service</li>
-        <li id="reaganL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Ronald Reagan State Building</li>
-        <li id="cityhallL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Los Angeles City Hall</li>
-        <li id="indieL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/movies.png">Downtown Independent</li>
-        <li id="premL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Premiere Towers</li>
-        <li id="transL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bus.png">California Department of Transportation</li>
-        <li id="vanL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Van Nuys Appartments</li>
-        <li id="jaliscoL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/bar.png">The New Jalisco Bar</li>
-        <li id="lastL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">The Last Bookstore</li>
-        <li id="springL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/tree.png">Spring Street Park</li>
-        <li id="wfATML"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/dollar.png">Wells Fargo: ATM</li>
-        <li id="loftL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">PE Lofts</li>
-        <li id="latL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/info.png">The LA Times</li>
-        <li id="smellL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">The Smell</li>
-        <li id="skidL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/homegardenbusiness.png">Skid Row Housing Trust Tenant</li>
-        <li id="imL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/woman.png">Immigration Center For Women and Children</li>
-        <li id="macL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/electronics.png">Spring Street Mac - iPhone & Mac Repair</li>
-        <li id="claudioL"><img class="iconL" src="https://maps.gstatic.com/mapfiles/ms2/micons/arts.png">Claudio Ethos Mural</li>
+        <li id="lapdL"><%= image_tag 'police.png' %>Los Angeles Police Department</li>
+        <li id="postalL"><%= image_tag 'mail.png' %>United States Postal Service</li>
+        <li id="cityhallL"><%= image_tag 'statebuilding.png' %>Los Angeles City Hall</li>
+        <li id="indieL"><%= image_tag 'camera.png' %>Downtown Independent</li>
+        <li id="premL"><%= image_tag 'apartment.png' %>Premiere Towers</li>
+        <li id="transL"><%= image_tag 'bus.png' %>California Department of Transportation</li>
+        <li id="vanL"><%= image_tag 'apartment.png' %>Van Nuys Appartments</li>
+        <li id="reaganL"><%= image_tag 'statebuilding.png' %>Ronald Reagan State Building</li>
+        <li id="jaliscoL"><%= image_tag 'bottle.png' %>The New Jalisco Bar</li>
+        <li id="lastL"><%= image_tag 'book.png' %>The Last Bookstore</li>
+        <li id="springL"><%= image_tag 'park.png' %>Spring Street Park</li>
+        <li id="wfATML"><%= image_tag 'dollar.png' %>Wells Fargo: ATM</li>
+        <li id="loftL"><%= image_tag 'apartment.png' %>PE Lofts</li>
+        <li id="latL"><%= image_tag 'news.png' %>The LA Times</li>
+        <li id="smellL"><%= image_tag 'music.png' %>The Smell</li>
+        <li id="skidL"><%= image_tag 'house.png' %>Skid Row Housing Trust Tenant</li>
+        <li id="imL"><%= image_tag 'woman.png' %>Immigration Center For Women and Children</li>
+        <li id="macL"><%= image_tag 'apple.png' %>Spring Street Mac - iPhone & Mac Repair</li>
+        <li id="claudioL"><%= image_tag 'art.png' %>Claudio Ethos Mural</li>
+      </ul>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">Photos of Potential Spaces</div>
+      <div class="collapsible-body">
+      <ul>
+        <li id="glasgow"><%= image_tag 'picture.png' %>The Glasgow Tailor</li>
+        <li id="barclay"><%= image_tag 'picture.png' %>Hotel Barclay</li>
+        <li id="Smain"><%= image_tag 'picture.png' %>545 S Main St</li>
+        <li id="hi"><%= image_tag 'picture.png' %>Hi Sushi</li>
+        <li id="caged"><%= image_tag 'picture.png' %>Caged Area</li>
+        <li id="fjah"><%= image_tag 'picture.png' %>F JAH</li>
+        <li id="obsc"><%= image_tag 'picture.png' %>Building Obscuring Name</li>
+        <li id="fdc"><%= image_tag 'picture.png' %>FDC Truck</li>
+        <li id="treetriangle"><%= image_tag 'picture.png' %>Tree Triangle</li>
+        <li id="bikelane"><%= image_tag 'picture.png' %>Bike Lane</li>
+        <li id="publicphone"><%= image_tag 'picture.png' %>ATM / Public Phone</li>
+        <li id="detour"><%= image_tag 'picture.png' %>Detour Space</li>
+        <li id="tables"><%= image_tag 'picture.png' %>Some Tables</li>
+        <li id="arcade"><%= image_tag 'picture.png' %>Spring Arcade Building</li>
+        <li id="theatrecenter"><%= image_tag 'picture.png' %>The Los Angeles Theatre Center</li>
+        <li id="caffeine"><%= image_tag 'picture.png' %>Caffeine Food Love</li>
+        <li id="heart"><%= image_tag 'picture.png' %>Heart Box</li>
+        <li id="concrete"><%= image_tag 'picture.png' %>Concrete Nook</li>
+        <li id="sspark"><%= image_tag 'picture.png' %>Spring Street Park</li>
+        <li id="cone"><%= image_tag 'picture.png' %>Cone / Alley</li>
       </ul>
       </div>
     </li>
   </ul>
+  </div>
+  </div>
+</div>
+  <div class="parallax-container par2">
+    <h3 class="call-header">Social Media</h3>
+    <div class="parallax">
+      <%= image_tag 'sit.jpg' %>
+    </div>
+  </div>
+  <div class="container">
+  <div class="section white">
+  <div class="row">
+    <div class="col s6 twittcont section scrollspy noscroll" id="social">
+  <a class="twitter-timeline" href="https://twitter.com/LARoadConcerts" target="_blank">Tweets by LARoadConcerts</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+     </div>
+    <div class="col s6 twittcont section scrollspy noscroll" id="social">
+<h5><a href="/" target="_blank">@LARoadConcerts</a> on Instagram</h5>
+<!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/a33c1e9a12cf5f1f896f021e85ea49b9.html" id="lightwidget_a33c1e9a12" name="lightwidget_a33c1e9a12"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+     </div>
+  </div>
+  <span id="bottom"></span>
+  </div>
+</div>
 <%= yield %>
-	</div>
-<div class="col s4 twittcont">
-	            <a class="twitter-timeline" href="https://twitter.com/LARoadConcerts">Tweets by LARoadConcerts</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      
-</div>
-</div>
-</main>
-<footer class="page-footer blue darken-4">
-	<div class="footer-copyright">
-	</div>
-</footer>
 </body>
 </html>

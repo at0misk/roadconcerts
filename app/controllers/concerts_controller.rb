@@ -1,20 +1,15 @@
 class ConcertsController < ApplicationController
-	def call
+  def index
+  end
+  def es
+   render :layout => false
+  end
+  def mail
+  	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
+  	respond_to do |format|
+	format.html { render json: params['email'], status: :created}
+	format.json { render json: params['email'], status: :created}
+	format.js { render json: params['email'], status: :created}
 	end
-	def release
-	end
-	def artists
-	end
-	def interactive
-		render :layout => false
-	end
-	def past
-	end
-	def download
-	end
-	def printable
-	end
-	def mulholland
-		redirect_to "http://www.laroadconcerts.com/mulholland.htm"
-	end
+  end
 end

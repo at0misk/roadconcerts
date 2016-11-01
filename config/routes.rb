@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
+  root 'concerts#index'
+  post 'mail' => 'concerts#mail'
+  get 'es' => 'concerts#es'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'concerts#index'
-  get 'call' => 'concerts#call'
-  get 'release' => 'concerts#release'
-  get 'artists' => 'concerts#artists'
-  get 'interactive' => 'concerts#interactive'
-  get 'past' => 'concerts#past'
-  get 'download' => 'concerts#download'
-  get 'printable' => 'concerts#printable'
-  get 'mulholland' => 'concerts#mulholland'
+  # root 'welcome#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
