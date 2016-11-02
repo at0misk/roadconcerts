@@ -1449,10 +1449,10 @@ window.onbeforeunload = function () {
   .mobilep{
   display: none;
 }
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 .parallax {
 /*background-attachment: scroll !important;*/
-height: 30%;
+height: 100%;
 width: 100%;
 }
 .par1{
@@ -1465,17 +1465,24 @@ width: 100%;
   display: block !important;
 }
 #about{
-  height: 1110px;
+  height: auto;
+  font-size: 2.5em;
 }
 #call{
-  height: 1110px;
+  height: auto;
+  font-size: 2.5em;
 }
 .tabs-wrapper{
   display: none !important;
 }
+#mcontainer{
+  display: none;
 }
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+#mcontainer2{
+  display: none;
 }
+}
+@media only screen and (min-device-width: 667px) and (max-device-width: 1600px) {
 }
 </style>
 </head>
@@ -1514,7 +1521,25 @@ width: 100%;
     </div>
   </div>
   <div class="row container section scrollspy" id="about">
-  <div class="section white first-text">
+<div class="mobilep">
+  <p>Press Release</p>
+  <p>Day of Remembrance Road Concert</p>
+
+<p>site-specific works along 1st, Spring, 9th and Main in Downtown Los Angeles</p>
+
+<p>Los Angeles Road Concerts presents a showing of site-specific projects from Los Angeles artists in unused public outdoor spaces along a loop made of Spring St, 9th St, Main St and 1st St. For one day participating artists display installations, perform works, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Audience members can walk, bike, skateboard, carpool or take public transit. They can time it to see it all, go it unplanned, or carefully curate their day. An official map of the day’s events along with project descriptions and other downloadable information will be available to the public starting a week before the event on the event website.</p>
+
+<p>LA Road Concerts seeks to investigate the possibilities of LA's streets as sites for artistic exploration while offering a street-level window onto the city's diversity of people, buildings and landscapes, how the metropolis grew and cars came to dominate, and the in-between and negative spaces the city left behind as it expanded. Through a wide open call process, LA Road Concerts brings together art school graduates, working artists, local residents and other artists, writers, musicians, performers, to realize a broad array of kinds of interactions with the sites.</p>
+
+<p>This particular road concert is part of the annual World Day of Remembrance for Road Traffic Victims (<a href="http://worlddayofremembrance.org" target="_blank">http://worlddayofremembrance.org</a>), commemorating the many millions killed and injured on the world’s roads, together with their families and communities. For pedestrians, Downtown LA is the most dangerous area of the most dangerous US city. Over 600 people on foot were hit by cars in Downtown LA over 12 years, averaging a person a week.This road concert asks participating artists of any medium to make works that bring awareness to traffic casualties, ponder solutions and utopias, remember the victims, investigate car culture, and explore the complexity of the problem, such as what causes people to make dangerous decisions like texting or drinking while driving, or how our transit systems reflect America's race and class inequalities and privilege the able bodied.</p>
+
+<p>A list of the day's participating artists will be announced closer to the date of the event. Previous road concerts showed the work of over 200 artists, including Marnie Weber, Todd Gray, Julie Tolentino, Ramiro Gomez Jr, Christine Wang, John Kilduff, Marc Horowitz, Fallen Fruit, Sheree Rose, West Hollywood Councilman John D'Amico, Margaret Wappler, Solomon Bothwell, Julia Holter, Kate Durbin, Christine Wang, Kim Ye, Jim Skuldt, Vincent Ramos, and many more artists.</p>
+
+<p>November 20, 2016</p>
+
+<p>FREE</p>
+</div>
+  <div id="mcontainer" class="section white first-text">
       <ul id="staggered">
         <li>
     <div class="card">
@@ -1542,24 +1567,6 @@ width: 100%;
   </div>
 </li>
       </ul>
-<div class="mobilep">
-  <p>Press Release</p>
-  <p>Day of Remembrance Road Concert</p>
-
-<p>site-specific works along 1st, Spring, 9th and Main in Downtown Los Angeles</p>
-
-<p>Los Angeles Road Concerts presents a showing of site-specific projects from Los Angeles artists in unused public outdoor spaces along a loop made of Spring St, 9th St, Main St and 1st St. For one day participating artists display installations, perform works, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Audience members can walk, bike, skateboard, carpool or take public transit. They can time it to see it all, go it unplanned, or carefully curate their day. An official map of the day’s events along with project descriptions and other downloadable information will be available to the public starting a week before the event on the event website.</p>
-
-<p>LA Road Concerts seeks to investigate the possibilities of LA's streets as sites for artistic exploration while offering a street-level window onto the city's diversity of people, buildings and landscapes, how the metropolis grew and cars came to dominate, and the in-between and negative spaces the city left behind as it expanded. Through a wide open call process, LA Road Concerts brings together art school graduates, working artists, local residents and other artists, writers, musicians, performers, to realize a broad array of kinds of interactions with the sites.</p>
-
-<p>This particular road concert is part of the annual World Day of Remembrance for Road Traffic Victims (<a href="http://worlddayofremembrance.org" target="_blank">http://worlddayofremembrance.org</a>), commemorating the many millions killed and injured on the world’s roads, together with their families and communities. For pedestrians, Downtown LA is the most dangerous area of the most dangerous US city. Over 600 people on foot were hit by cars in Downtown LA over 12 years, averaging a person a week.This road concert asks participating artists of any medium to make works that bring awareness to traffic casualties, ponder solutions and utopias, remember the victims, investigate car culture, and explore the complexity of the problem, such as what causes people to make dangerous decisions like texting or drinking while driving, or how our transit systems reflect America's race and class inequalities and privilege the able bodied.</p>
-
-<p>A list of the day's participating artists will be announced closer to the date of the event. Previous road concerts showed the work of over 200 artists, including Marnie Weber, Todd Gray, Julie Tolentino, Ramiro Gomez Jr, Christine Wang, John Kilduff, Marc Horowitz, Fallen Fruit, Sheree Rose, West Hollywood Councilman John D'Amico, Margaret Wappler, Solomon Bothwell, Julia Holter, Kate Durbin, Christine Wang, Kim Ye, Jim Skuldt, Vincent Ramos, and many more artists.</p>
-
-<p>November 20, 2016</p>
-
-<p>FREE</p>
-</div>
 </div>
 </div>
   <div class="parallax-container par2" title="painting by Ramiro Gomez Jr">
@@ -1568,7 +1575,7 @@ width: 100%;
       <%= image_tag 'construction.jpg' %>
     </div>
   </div>
-  <div class="section white">
+  <div class="section white" id="mcontainer2">
     <div class="row container section scrollspy" id="call">
   <div class="section white second-text">
       <ul id="second-staggered">
