@@ -260,7 +260,40 @@ window.onbeforeunload = function () {
 .mobilep{
   display: none;
 }
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+@media only screen and (min-device-width : 375px) and (max-device-width : 767px) {
+.parallax {
+/*background-attachment: scroll !important;*/
+height: 100%;
+width: 100%;
+}
+.par1{
+  height: 100%;
+}
+.card{
+  display: none !important;
+}
+.mobilep{
+  display: block !important;
+}
+#about{
+  height: auto;
+  font-size: 2.5em;
+}
+#call{
+  height: auto;
+  font-size: 2.5em;
+}
+.tabs-wrapper{
+  display: none !important;
+}
+#mcontainer{
+  display: none;
+}
+#mcontainer2{
+  display: none;
+}
+}
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi){
 .parallax {
 /*background-attachment: scroll !important;*/
 height: 100%;

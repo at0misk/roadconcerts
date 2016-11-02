@@ -465,44 +465,6 @@ width: 100%;
       </ul>
     </div>
   </div>
-    <div class="parallax-container par2" title="Wind Chimes by Carolyn Chen">
-    <h3 class="call-header">Mailing List</h3>
-    <div class="parallax">
-      <%= image_tag 'cardboard.jpg' %>
-    </div>
-  </div>
-    <div class="section white">
-      <div class="row container section scrollspy" id="mailinglist">
-        <div class="section white">
-        <div class="parallax-container par3">
-          <div class="row sub-form-row">
-          <div class="col s12 formOut">
-            <h4>Join the mailing list to stay updated!</h4>
-            <form action='/mail' method='post' data-remote="false" id='mailerform'>
-            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">person</i>
-              <input type="text" name="first" placeholder="First Name">
-            </div>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">person_outline</i>
-              <input type="text" name="last" placeholder="Last Name">
-            </div>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">email</i>
-              <input type="text" name="email" placeholder="Email">
-            </div>
-              <button class="btn waves-effect waves-light light-blue" type="submit" name="action">Join</button>
-            </form>
-          </div>
-          <div class="col s12 formIn">
-            <h4>Thank you for joining the mailing list!</h4>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="parallax-container par2" title="Idea Truck by Lorri Deyer">
     <h3 class="call-header">Route and Possible Locations</h3>
     <div class="parallax">
@@ -572,6 +534,44 @@ width: 100%;
   </div>
   </div>
 </div>
+    <div class="parallax-container par2" title="Wind Chimes by Carolyn Chen">
+    <h3 class="call-header">Mailing List</h3>
+    <div class="parallax">
+      <%= image_tag 'cardboard.jpg' %>
+    </div>
+  </div>
+    <div class="section white">
+      <div class="row container section scrollspy" id="mailinglist">
+        <div class="section white">
+        <div class="parallax-container par3">
+          <div class="row sub-form-row">
+          <div class="col s12 formOut">
+            <h4>Join the mailing list to stay updated!</h4>
+            <form action='/mail' method='post' data-remote="false" id='mailerform'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person</i>
+              <input type="text" name="first" placeholder="First Name">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_outline</i>
+              <input type="text" name="last" placeholder="Last Name">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input type="text" name="email" placeholder="Email">
+            </div>
+              <button class="btn waves-effect waves-light light-blue" type="submit" name="action">Join</button>
+            </form>
+          </div>
+          <div class="col s12 formIn">
+            <h4>Thank you for joining the mailing list!</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="parallax-container par2">
     <h3 class="call-header">Social Media</h3>
     <div class="parallax">
