@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-   <script>
+    <script>
 
 function fadeCB(callback){
   $('.formOut').fadeOut(600);
@@ -31,7 +31,7 @@ window.onbeforeunload = function () {
       $('.scrollspy').scrollSpy();
       $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
         var options = [
-        {selector: '.first-text', offset: 550, callback: function(){
+        {selector: '.first-text', offset: 600, callback: function(){
           $('.tabs-wrapper').fadeIn(1100);
           console.log('hit');
         }},
@@ -345,9 +345,9 @@ window.onbeforeunload = function () {
     var contentStringCityHall = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Ayuntamiento de Los Ángeles</h6>'+
+        '<h6>Los Angeles City Hall</h6>'+
         '</div>';
-var contentStringGlasgow = '<div id="content">'+
+    var contentStringGlasgow = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h6>The Glasgow Tailors</h6>'+
@@ -510,7 +510,7 @@ var contentStringGlasgow = '<div id="content">'+
     var contentStringIndie = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>The Downtown Independent</h6>'+
+        '<h6>Downtown Independent</h6>'+
         '</div>';
     var contentStringSmell = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -545,17 +545,17 @@ var contentStringGlasgow = '<div id="content">'+
     var contentStringLAPD = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Departamento de Policía de Los Ángeles</h6>'+
+        '<h6>Los Angeles Police Department</h6>'+
         '</div>';
     var contentStringTransport = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Departamento de Transporte de California (Caltrans)</h6>'+
+        '<h6>California Department of Transportation (Caltrans)</h6>'+
         '</div>';
     var contentStringSkid = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Skid Row Housing Trust</h6>'+
+        '<h6>Skid Row Housing Trust Tenant</h6>'+
         '</div>';
     var contentStringLofts = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -565,7 +565,7 @@ var contentStringGlasgow = '<div id="content">'+
     var contentStringVanNuys = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Van Nuys Apartamentos</h6>'+
+        '<h6>Van Nuys Apartments</h6>'+
         '</div>';
     var contentStringPremiere = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -575,17 +575,17 @@ var contentStringGlasgow = '<div id="content">'+
     var contentStringImmigration = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Centro de Inmigración para Mujeres y Niños</h6>'+
+        '<h6>Immigration Center For Women and Children</h6>'+
         '</div>';
     var contentStringSpringMac = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Spring Street Mac - Iphone & Mac Repair</h6>'+
+        '<h6>Spring Street Mac - iPhone & Mac Repair</h6>'+
         '</div>';
     var contentStringPostal = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Servicio Postal de los Estados Unidos</h6>'+
+        '<h6>United States Postal Service</h6>'+
         '</div>';
     var contentStringClaudio = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -601,13 +601,13 @@ var contentStringGlasgow = '<div id="content">'+
     var markerCityHall = new google.maps.Marker({
       position: cityHall,
       map: mapInteractive,
-      title: 'Ayuntamiento de Los Ángeles',
+      title: 'Los Angeles City Hall',
       icon: "<%= escape_javascript asset_path('statebuilding_icon.png') %>"
     });
     var markerIndie = new google.maps.Marker({
       position: indie,
       map: mapInteractive,
-      title: 'The Downtown Independent',
+      title: 'Downtown Independent',
       icon: "<%= escape_javascript asset_path('camera_icon.png') %>"
     });
     var markerSmell = new google.maps.Marker({
@@ -649,19 +649,19 @@ var contentStringGlasgow = '<div id="content">'+
     var markerLAPD = new google.maps.Marker({
       position: lapd,
       map: mapInteractive,
-      title: 'Departamento de Policía de Los Ángeles',
+      title: 'Los Angeles Police Department',
       icon: "<%= escape_javascript asset_path('police_icon.png') %>"
     });
     var markerTransport = new google.maps.Marker({
       position: transport,
       map: mapInteractive,
-      title: 'Departamento de Transporte de California (Caltrans)',
+      title: 'California Department of Transportation (Caltrans)',
       icon: "<%= escape_javascript asset_path('bus_icon.png') %>"
     });
     var markerSkid = new google.maps.Marker({
       position: skid,
       map: mapInteractive,
-      title: 'Skid Row Housing Trust',
+      title: 'Skid Row Housing Trust Tenant',
       icon: "<%= escape_javascript asset_path('house_icon.png') %>"
     });
     var markerLofts = new google.maps.Marker({
@@ -673,7 +673,7 @@ var contentStringGlasgow = '<div id="content">'+
     var markerVanNuys = new google.maps.Marker({
       position: vanNuys,
       map: mapInteractive,
-      title: 'Van Nuys Apartamentos',
+      title: 'Van Nuys Apartments',
       icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
     });
     var markerPremiere = new google.maps.Marker({
@@ -685,19 +685,19 @@ var contentStringGlasgow = '<div id="content">'+
     var markerImmigration = new google.maps.Marker({
       position: immigration,
       map: mapInteractive,
-      title: 'Centro de Inmigración para Mujeres y Niños',
+      title: 'Immigration Center For Women and Children',
       icon: "<%= escape_javascript asset_path('woman_icon.png') %>"
     });
     var markerSpringMac = new google.maps.Marker({
       position: springMac,
       map: mapInteractive,
-      title: 'Spring Street Mac - Iphone & Mac Repair',
+      title: 'Spring Street Mac - iPhone & Mac Repair',
       icon: "<%= escape_javascript asset_path('apple_icon.png') %>"
     });
     var markerPostal = new google.maps.Marker({
       position: postal,
       map: mapInteractive,
-      title: 'Servicio Postal de los Estados Unidos',
+      title: 'United States Postal Service',
       icon: "<%= escape_javascript asset_path('mail_icon.png') %>"
     });
     var markerClaudio = new google.maps.Marker({
@@ -836,7 +836,7 @@ var contentStringGlasgow = '<div id="content">'+
     infowindow.setContent(contentStringReagan);
     infowindow.open(mapInteractive, markerReagan);
     });
-markerGlasgow.addListener('click', function(){
+    markerGlasgow.addListener('click', function(){
     infowindow.close()
     infowindow.setContent(contentStringGlasgow);
     infowindow.open(mapInteractive, markerGlasgow);
@@ -1329,7 +1329,6 @@ markerGlasgow.addListener('click', function(){
   .twittcont{
       height: 850px;
       overflow: scroll;
-      overflow-x: hidden;
   }
   /*// Class for when element is above threshold*/
   .pin-top {
@@ -1348,7 +1347,7 @@ markerGlasgow.addListener('click', function(){
     padding: 11px;
     z-index: 99 !important;
     right: 0;
-    height: 100%;
+    height: 900px;
   }
   .hidden{
     display: none;
@@ -1377,7 +1376,7 @@ markerGlasgow.addListener('click', function(){
     padding: 70px;
   }
   .par1 h1{
-    font-size: 10em;
+    font-size: 7em;
   }
   .par1 h3{
     font-size: 6em;
@@ -1438,7 +1437,6 @@ markerGlasgow.addListener('click', function(){
       /*right: 0;*/
       position: absolute;
       margin: 20px;
-      z-index: 99 !important;
     }
     .mapBodyContent img{
       width: 225px;
@@ -1447,10 +1445,7 @@ markerGlasgow.addListener('click', function(){
     .gm-style-iw{
       left: 25px !important;
     }
-  .mobilep{
-  display: none;
-}
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 .parallax {
 /*background-attachment: scroll !important;*/
 height: 30%;
@@ -1475,10 +1470,10 @@ width: 100%;
   display: none !important;
 }
 }
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+@media only screen and (min-device-width: 667px) and (max-device-width: 1600px) {
 }
 }
-</style>
+   </style>
 </head>
 <body>
   <div class="tabs-wrapper hidden">
