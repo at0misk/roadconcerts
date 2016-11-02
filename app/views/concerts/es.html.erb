@@ -70,9 +70,6 @@ window.onbeforeunload = function () {
     });
    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMapInt">
-</script>
    <style>
    *{
     font-family: 'Lora', sans-serif;
@@ -1735,5 +1732,8 @@ width: 100%;
       };
     mapInteractive.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend'));
   }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA0BAI1oQ69S-OIl5RBdEMNIlcxw7dOaY&callback=initMapInt">
 </script>
 </html>
