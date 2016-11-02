@@ -460,44 +460,6 @@ width: 100%;
       </ul>
 </div>
   </div>
-    <div class="parallax-container par2" title="Wind Chimes de Carolyn Chen">
-    <h3 class="call-header">Suscríbase</h3>
-    <div class="parallax">
-      <%= image_tag 'cardboard.jpg' %>
-    </div>
-  </div>
-    <div class="section white">
-      <div class="row container section scrollspy" id="mailinglist">
-        <div class="section white">
-        <div class="parallax-container par3">
-          <div class="row sub-form-row">
-          <div class="col s12 formOut">
-            <h4>Suscríbase a nuestra lista de distribución!</h4>
-            <form action='/mail' method='post' data-remote="false" id='mailerform'>
-            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">person</i>
-              <input type="text" name="first" placeholder="Primer Nombre">
-            </div>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">person_outline</i>
-              <input type="text" name="last" placeholder="Apellido">
-            </div>
-            <div class="input-field col s12">
-              <i class="material-icons prefix">email</i>
-              <input type="text" name="email" placeholder="Email">
-            </div>
-              <button class="btn waves-effect waves-light light-blue" type="submit" name="action">Suscríbase</button>
-            </form>
-          </div>
-          <div class="col s12 formIn">
-            <h4>Gracias por unirse a la lista de correo!</h4>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="parallax-container par2" title="Idea Truck de Lorri Deyer">
     <h3 class="call-header">El Mapa con Sitios Posibles</h3>
     <div class="parallax">
@@ -567,6 +529,44 @@ width: 100%;
   </div>
   </div>
 </div>
+    <div class="parallax-container par2" title="Wind Chimes de Carolyn Chen">
+    <h3 class="call-header">Suscríbase</h3>
+    <div class="parallax">
+      <%= image_tag 'cardboard.jpg' %>
+    </div>
+  </div>
+    <div class="section white">
+      <div class="row container section scrollspy" id="mailinglist">
+        <div class="section white">
+        <div class="parallax-container par3">
+          <div class="row sub-form-row">
+          <div class="col s12 formOut">
+            <h4>Suscríbase a nuestra lista de distribución!</h4>
+            <form action='/mail' method='post' data-remote="false" id='mailerform'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person</i>
+              <input type="text" name="first" placeholder="Primer Nombre">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_outline</i>
+              <input type="text" name="last" placeholder="Apellido">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input type="text" name="email" placeholder="Email">
+            </div>
+              <button class="btn waves-effect waves-light light-blue" type="submit" name="action">Suscríbase</button>
+            </form>
+          </div>
+          <div class="col s12 formIn">
+            <h4>Gracias por unirse a la lista de correo!</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="parallax-container par2">
     <h3 class="call-header">Medios Sociales</h3>
     <div class="parallax">
