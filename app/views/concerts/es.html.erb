@@ -71,6 +71,12 @@ window.onbeforeunload = function () {
    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
    <style>
+   .collapsible-body p{
+    padding: 1em;
+   }
+   #content{
+    width: 300px;
+   }
    *{
     font-family: 'Lora', sans-serif;
    }
@@ -103,11 +109,17 @@ window.onbeforeunload = function () {
       margin-bottom: 0;
     }
   #legend {
+    width: 350px;
     background: white;
     padding: 10px;
     margin-left: 10px;
     font-size: 1.15em;
+    overflow: scroll;
+    height: 560px;
   }
+    #legend::-webkit-scrollbar{
+      display: none;
+    }
   .iconL{
     height:20px;
     width:20px;
@@ -461,7 +473,7 @@ width: 100%;
 </div>
   </div>
   <div class="parallax-container par2" title="Idea Truck de Lorri Deyer">
-    <h3 class="call-header">El Mapa con Sitios Posibles</h3>
+    <h3 class="call-header">El Mapa Interactivo</h3>
     <div class="parallax">
       <%= image_tag 'ideatruck.jpg' %>
     </div>
@@ -471,60 +483,46 @@ width: 100%;
     <div class="col s12 mapcont">
     <div id="mapInteractive">
     </div>
-<ul id="legend" class="collapsible" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header">Sitios Posibles</div>
-      <div class="collapsible-body">
-      <ul>
-        <li id="lapdL"><%= image_tag 'police.png' %>Departamento de Policía de Los Ángeles</li>
-        <li id="postalL"><%= image_tag 'mail.png' %>Servicio Postal de los Estados Unidos</li>
-        <li id="cityhallL"><%= image_tag 'statebuilding.png' %>Ayuntamiento de Los Ángeles</li>
-        <li id="indieL"><%= image_tag 'camera.png' %>The Downtown Independent</li>
-        <li id="premL"><%= image_tag 'apartment.png' %>Premiere Towers</li>
-        <li id="transL"><%= image_tag 'bus.png' %>Departamento de Transporte de California</li>
-        <li id="vanL"><%= image_tag 'apartment.png' %>Van Nuys Apartamentos</li>
-        <li id="reaganL"><%= image_tag 'statebuilding.png' %>Ronald Reagan State Building</li>
-        <li id="jaliscoL"><%= image_tag 'bottle.png' %>The New Jalisco Bar</li>
-        <li id="lastL"><%= image_tag 'book.png' %>The Last Bookstore</li>
-        <li id="springL"><%= image_tag 'park.png' %>Spring Street Park</li>
-        <li id="wfATML"><%= image_tag 'dollar.png' %>Wells Fargo: ATM</li>
-        <li id="loftL"><%= image_tag 'apartment.png' %>PE Lofts</li>
-        <li id="latL"><%= image_tag 'news.png' %>The LA Times</li>
-        <li id="smellL"><%= image_tag 'music.png' %>The Smell</li>
-        <li id="skidL"><%= image_tag 'house.png' %>Skid Row Housing Trust</li>
-        <li id="imL"><%= image_tag 'woman.png' %>Centro de Inmigración para Mujeres y Niños</li>
-        <li id="macL"><%= image_tag 'apple.png' %>Spring Street Mac - Iphone & Mac Repair</li>
-        <li id="claudioL"><%= image_tag 'art.png' %>Claudio Ethos Mural</li>
-      </ul>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header">Fotos de Espacios Potenciales</div>
-      <div class="collapsible-body">
-      <ul>
-        <li id="glasgow"><%= image_tag 'picture.png' %>The Glasgow Tailor</li>
-        <li id="barclay"><%= image_tag 'picture.png' %>Hotel Barclay</li>
-        <li id="Smain"><%= image_tag 'picture.png' %>545 S Main St</li>
-        <li id="hi"><%= image_tag 'picture.png' %>Hi Sushi</li>
-        <li id="caged"><%= image_tag 'picture.png' %>Caged Area</li>
-        <li id="fjah"><%= image_tag 'picture.png' %>F JAH</li>
-        <li id="obsc"><%= image_tag 'picture.png' %>Building Obscuring Name</li>
-        <li id="fdc"><%= image_tag 'picture.png' %>FDC Truck</li>
-        <li id="treetriangle"><%= image_tag 'picture.png' %>Tree Triangle</li>
-        <li id="bikelane"><%= image_tag 'picture.png' %>Bike Lane</li>
-        <li id="publicphone"><%= image_tag 'picture.png' %>ATM / Public Phone</li>
-        <li id="detour"><%= image_tag 'picture.png' %>Detour Space</li>
-        <li id="tables"><%= image_tag 'picture.png' %>Some Tables</li>
-        <li id="arcade"><%= image_tag 'picture.png' %>Spring Arcade Building</li>
-        <li id="theatrecenter"><%= image_tag 'picture.png' %>The Los Angeles Theatre Center</li>
-        <li id="caffeine"><%= image_tag 'picture.png' %>Caffeine Food Love</li>
-        <li id="heart"><%= image_tag 'picture.png' %>Heart Box</li>
-        <li id="concrete"><%= image_tag 'picture.png' %>Concrete Nook</li>
-        <li id="sspark"><%= image_tag 'picture.png' %>Spring Street Park</li>
-        <li id="cone"><%= image_tag 'picture.png' %>Cone / Alley</li>
-      </ul>
-      </div>
-    </li>
+<ul id="legend">
+        <!-- NEW STUFF -->
+        <li id="jes"><%= image_tag 'location.png' %>Reception</li>
+        <li id="khost"><%= image_tag 'location.png' %>Alex Khost & Amy Bauer</li>
+        <li id="lewis"><%= image_tag 'location.png' %>Alexia Lewis</li>
+        <li id="witten"><%= image_tag 'location.png' %>Anna Wittenberg</li>
+        <li id="guthrie"><%= image_tag 'location.png' %>April Guthrie</li>
+        <li id="dstl"><%= image_tag 'location.png' %>Avenue 50 Studios & DSTL Arts</li>
+        <li id="ben"><%= image_tag 'location.png' %>Benjamin Desvallées</li>
+        <li id="fie"><%= image_tag 'location.png' %>Beth Fiedorek</li>
+        <li id="luj"><%= image_tag 'location.png' %>Cynthia Lujan</li>
+        <li id="cluj"><%= image_tag 'location.png' %>Cynthia Lujan - Snapchat Filter</li>
+        <li id="keyhole"><%= image_tag 'location.png' %>Dr. Brian Griffeath-Loeb</li>
+        <li id="sarg"><%= image_tag 'location.png' %>Gegham Sargsyan</li>
+        <li id="ihug"><%= image_tag 'location.png' %>IHUG</li>
+        <li id="jon"><%= image_tag 'location.png' %>Jonathan Gomez</li>
+        <li id="joy"><%= image_tag 'location.png' %>Joy Parris</li>
+        <li id="lap"><%= image_tag 'location.png' %>L.A.P. (Love, Art, Participation) Dancers</li>
+        <li id="raven"><%= image_tag 'location.png' %>Linda Ravenswood</li>
+        <li id="walks"><%= image_tag 'location.png' %>Los Angeles Walks</li>
+        <li id="walksB"><%= image_tag 'location.png' %>Los Angeles Walks - Route</li>
+        <li id="markso"><%= image_tag 'location.png' %>Mark So</li>
+        <li id="pizza"><%= image_tag 'location.png' %>Matt MacFarland</li>
+        <li id="bike"><%= image_tag 'location.png' %>Max Markowitz & Joe Potts & Stuart Rapeport & Rebecca Guerrero & Sybil McMiller</li>
+        <li id="rip"><%= image_tag 'location.png' %>Michael Rippens</li>
+        <li id="niko"><%= image_tag 'location.png' %>Niko Solorio</li>
+        <li id="gloss"><%= image_tag 'location.png' %>Pauline Gloss</li>
+        <li id="rob"><%= image_tag 'location.png' %>Robert Frashure and Miggie Wong</li>
+        <li id="word"><%= image_tag 'location.png' %>Scott Froschauer</li>
+        <li id="silu"><%= image_tag 'location.png' %>Siluspress</li>
+        <li id="simone"><%= image_tag 'location.png' %>Simone Gad</li>
+        <li id="sir"><%= image_tag 'location.png' %>Sir Oliver</li>
+        <li id="sir"><%= image_tag 'location.png' %>Skip Snow & Oscar David Alvarez</li>
+        <li id="susan"><%= image_tag 'location.png' %>Susan Joseph</li>
+        <li id="suz"><%= image_tag 'location.png' %>Suzanne Joskow and Henderson Blumer</li>
+        <li id="syn"><%= image_tag 'location.png' %>Synesthesia and Opera Del Espacio</li>
+        <li id="tucker"><%= image_tag 'location.png' %>Tucker Neel</li>
+        <li id="tracy"><%= image_tag 'location.png' %>Tracy Mollis</li>
+        <li id="wig"><%= image_tag 'location.png' %>Vitamin Wig C</li>
+        <li id="take"><%= image_tag 'location.png' %>Zeina Baltagi</li>
   </ul>
   </div>
   </div>
@@ -592,49 +590,48 @@ width: 100%;
 <script>
   function initMapInt() {
     console.log("init");
-    var uluru = {lat: 34.052235, lng: -118.243683};
-    var reagan = {lat: 34.0494, lng: -118.2468};
-    var cityHall = {lat: 34.0537, lng: -118.2427};
-    var indie = {lat: 34.0503, lng: -118.2458};
-    var smell = {lat: 34.050335, lng: -118.245668}
-    var jalisco = {lat: 34.050393, lng: -118.245587};
-    var last = {lat: 34.047763, lng: -118.249515};
-    var springPark = {lat: 34.048156, lng: -118.248882};
-    var wfATM = {lat: 34.049715, lng: -118.247970};
-    var times = {lat: 34.052119, lng: -118.245702};
-    var lapd = {lat: 34.051856, lng: -118.244337}
-    var transport = {lat: 34.051145, lng: -118.243595};
-    var skid = {lat: 34.046394, lng: -118.248342};
-    var lofts = {lat: 34.044830, lng: -118.249994};
-    var vanNuys = {lat: 34.044545, lng: -118.252618};
-    var premiere = {lat: 34.045544, lng: -118.251861};
-    var immigration = {lat: 34.044986, lng: -118.251434};
-    var springMac = {lat: 34.045527, lng: -118.250917};
-    var postal = {lat: 34.046985, lng: -118.249470};
-    var claudio = {lat: 34.047239, lng: -118.248287};
-    var glasgow = {lat: 34.048500, lng: -118.246964};
-    var barclay = {lat: 34.048344, lng: -118.247099};
-    var smain = {lat: 34.046175, lng: -118.249115};
-    var hi = {lat: 34.044047, lng: -118.251130};
-    var caged = {lat: 34.043967, lng: -118.251183};
-    var fjah = {lat: 34.043949, lng: -118.251237};
-    var obsc = {lat: 34.04349, lng: -118.252208};
-    var fdc = {lat: 34.042300, lng: -118.253996};
-    var treetriangle = {lat: 34.041998, lng: -118.254564};
-    var bikelane = {lat: 34.041909, lng: -118.254854};
-    var publicphone = {lat: 34.042830, lng: -118.253997};
-    var detour = {lat: 34.043806, lng: -118.253079};
-    var tables = {lat: 34.045050, lng: -118.251932};
-    var arcade = {lat: 34.046452, lng: -118.250554};
-    var theatrecenter = {lat: 34.046787, lng: -118.250015};
-    var caffeine = {lat: 34.047281, lng: -118.249598};
-    var heart = {lat: 34.043230, lng: -118.253621};
-    var concrete = {lat: 34.044307, lng: -118.252622};
-    var sspark = {lat: 34.047889, lng: -118.249050};
-    var cone = {lat: 34.048458, lng: -118.247665};
+    // NEW MARKERS
+    var khost = {lat: 34.051836, lng: -118.245442};
+    var lewis = {lat: 34.048038, lng: -118.248652};
+    var witten = {lat: 34.048482, lng: -118.247654};
+    var guthrie = {lat: 34.050900, lng: -118.244527};
+    var dstl = {lat: 34.045295, lng: -118.249940};
+    var fie = {lat: 34.045893, lng: -118.251120};
+    var luj = {lat: 34.052562, lng: -118.244015};
+    var cluj = {lat: 34.0494, lng: -118.2468};
+    var keyhole = {lat: 34.046460, lng: -118.250578};
+    var sarg = {lat: 34.041907, lng: -118.254405};
+    var jon = {lat: 34.050233, lng: -118.245382};
+    var joy = {lat: 34.049597, lng: -118.245886};
+    var lap = {lat: 34.049457, lng: -118.245881};
+    var raven = {lat: 34.049642, lng: -118.247678};
+    var walks = {lat: 34.047881, lng: -118.248885};
+    var walksB = {lat: 34.04349, lng: -118.252208};
+    var markso = {lat: 34.043806, lng: -118.253079};
+    var pizza = {lat: 34.045668, lng: -118.251427};
+    var bike = {lat: 34.049975, lng: -118.248083};
+    var rip = {lat: 34.046001, lng: -118.251108};
+    var gloss = {lat: 34.048264, lng: -118.248726};
+    var rob = {lat: 34.047461, lng: -118.247935};
+    var word = {lat: 34.052953, lng: -118.244381};
+    var silu = {lat: 34.046761, lng: -118.248547};
+    var simone = {lat: 34.047181, lng: -118.250086};
+    var sir = {lat: 34.046006, lng: -118.250961};
+    var skip = {lat: 34.042861, lng: -118.253168};
+    var susan = {lat: 34.042245, lng: -118.254316};
+    var suz = {lat: 34.044430, lng: -118.252610};
+    var syn = {lat: 34.042425, lng: -118.253699};
+    var tucker = {lat: 34.044047, lng: -118.251130};
+    var tracy = {lat: 34.043230, lng: -118.253621};
+    var wig = {lat: 34.041905, lng: -118.254630};
+    var ben = {lat: 34.044014, lng: -118.253013};
+    var take = {lat: 34.044014, lng: -118.253013};
+    var niko = {lat: 34.044014, lng: -118.253013};
+    var ihug = {lat: 34.044014, lng: -118.253013};
+    var jes = {lat: 34.044014, lng: -118.253013};
     var mapInteractive = new google.maps.Map(document.getElementById('mapInteractive'), {
       zoom: 16,
-      center: postal,
+      center: keyhole,
       styles: [
   {
     "elementType": "geometry",
@@ -853,887 +850,972 @@ width: 100%;
     scrollwheel:  false
     });
     var infowindow = new google.maps.InfoWindow();
-    var contentStringReagan = '<div id="content">'+
+        // NEW STUFF
+    var contentStringKhost = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Ronald Reagan State Building</h6>'+
-        // '<div id="bodyContent">'+
-        // '<p>Info on specific locations and artists coming soon!</p>'+
-        // '</div>'+
-        '</div>';
-    var contentStringCityHall = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h6>Los Angeles City Hall</h6>'+
-        '</div>';
-    var contentStringGlasgow = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h6>The Glasgow Tailors</h6>'+
+        '<h6>Alex Khost & Amy Bauer</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('glasgow.jpg') %>" + "></img>" +
+        "<p>In Memoriam: A Funeral Procession for the Death of Love</p>" +
+        "<p>Spring / 1st to 4th - 11:30 PM</p>" +
         '</div>'+
         '</div>';
-    var contentStringBarclay = '<div id="content">'+
+    var contentStringLewis = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Hotel Barclay</h6>'+
+        '<h6>Alexia Lewis</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('barclay.jpg') %>" + "></img>" +
+        "<p>A Charles to Keep</p>" +
+        "<p>Spring Street Park - 4 PM</p>" + 
+        "<p>At 4pm, as the sun sets, performance artist Alexia Lewis will initiate a ritual dedicated to her uncle Charles Boddie.</p>" + 
         '</div>'+
         '</div>';
-    var contentStringSmain = '<div id="content">'+
+    var contentStringWitten = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>545 S Main St.</h6>'+
+        '<h6>Anna Wittenberg</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('545.jpg') %>" + "></img>" +
+        "<p>Tubes in Love / Chains</p>" +
+        "<p>109 W 4th St - All Day</p>" +
+        "<p>Honoring the structureless strip 'Cone / Alley', building materials cuddle in chains. </p>" + 
         '</div>'+
         '</div>';
-    var contentStringHi = '<div id="content">'+
+    var contentStringGuthrie = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Hi Sushi</h6>'+
+        '<h6>April Guthrie</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('hi.jpg') %>" + "></img>" +
+        "<p>Main / 2nd</p>" +
         '</div>'+
         '</div>';
-    var contentStringCaged = '<div id="content">'+
+    var contentStringDstl = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Caged Area</h6>'+
+        '<h6>Avenue 50 Studios & DSTL Arts</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('caged.jpg') %>" + "></img>" +
+        "<p>Crusa Caminos - Crossing Paths</p>" +
+        "<p>Main / 6th - 1-3 PM</p>" +
+        "<p>Avenue 50 Studios and DSTL arts celebrate and commemorate the lives of victims of automobile fatalities through the traditional Mexican celebration of altar making. </p>" + 
         '</div>'+
         '</div>';
-    var contentStringFjah = '<div id="content">'+
+    var contentStringFie = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>F JAH</h6>'+
+        '<h6>Beth Fiedorek</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('fjah.jpg') %>" + "></img>" +
+        "<p>600 S Spring St - All Day</p>" +
         '</div>'+
         '</div>';
-    var contentStringObsc = '<div id="content">'+
+    var contentStringLuj = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Building Obscuring Name</h6>'+
+        '<h6>Cynthia Lujan</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('obsc.jpg') %>" + "></img>" +
+        "<p>Dimensionless Dimensions</p>" +
+        "<p>1st / between Main and Spring</p>" +
+        "<p>Pylon Cone Installation</p>" + 
         '</div>'+
         '</div>';
-    var contentStringFdc = '<div id="content">'+
+    var contentStringCLuj = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>FDC Truck</h6>'+
+        '<h6>Cynthia Lujan</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('fdc.jpg') %>" + "></img>" +
+        "<p>Snapchat Filter</p>" +
+        "<p>Available Everywhere - All Day</p>" +
+        "<p>Snapchat filter within Remembrance Day event-area.</p>" + 
         '</div>'+
         '</div>';
-    var contentStringTreetriangle = '<div id="content">'+
+    var contentStringKeyhole = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Tree Triangle</h6>'+
+        '<h6>Dr. Brian Griffeath-Loeb</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('treetriangle.jpg') %>" + "></img>" +
+        "<p>Keyhole Listening (2010-11, rev. 2016)</p>" +
+        "<p>541 S Spring St - 12 - 3 PM</p>" +
+        "<p>Listening through keyholes to objects inside other objects</p>" + 
         '</div>'+
         '</div>';
-    var contentStringBikelane = '<div id="content">'+
+    var contentStringSarg = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Bike Lane</h6>'+
+        '<h6>Gegham Sargsyan</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('bikelane.jpg') %>" + "></img>" +
+        "<p>Reverse Count</p>" +
+        "<p>9th St to 1st St </p>" +
         '</div>'+
         '</div>';
-    var contentStringPublicphone = '<div id="content">'+
+    var contentStringJon = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>ATM / Public Phone</h6>'+
+        '<h6>Jonathan Gomez</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('publicphone.jpg') %>" + "></img>" +
+        "<p>245 S Main St</p>" +
         '</div>'+
         '</div>';
-    var contentStringDetour = '<div id="content">'+
+    var contentStringJoy = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Detour Space</h6>'+
+        '<h6>Joy Parris - Writer/Poet</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('detour.jpg') %>" + "></img>" +
+        "<p>Poetry/Thoughts N Thing</p>" +
+        "<p>Main/3rd - 1 - 4 PM</p>" +
+        "<p>A collection of poems celebrating love and life</p>" + 
         '</div>'+
         '</div>';
-    var contentStringTables = '<div id="content">'+
+    var contentStringLap = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Some Tables</h6>'+
+        '<h6>L.A.P. (Love, Art, Participation) Dancers</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('tables.jpg') %>" + "></img>" +
+        "<p>3rd/Main SE Corner - 1-3 PM</p>" +
+        "<p>A creative movement to get people out of their boxes</p>" + 
         '</div>'+
         '</div>';
-    var contentStringArcade = '<div id="content">'+
+    var contentStringRaven = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Spring Arcade Building</h6>'+
+        '<h6>Linda Ravenswood</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('arcade.jpg') %>" + "></img>" +
+        "<p>Goodbye Wells Fargo</p>" +
+        "<p>333 S Spring St - All Day</p>" +
+        "<p>Standing at the Wells Fargo, delivering the historical autopsy.</p>" + 
         '</div>'+
         '</div>';
-    var contentStringTheatreCenter = '<div id="content">'+
+    var contentStringWalks = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Los Angeles Theatre Center</h6>'+
+        '<h6>Los Angeles Walks</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('theatrecenter.jpg') %>" + "></img>" +
+        "<p>Spring Street Park - 11 AM - 2 PM</p>" +
+        "<p>Make art with Los Angeles Walks to commemorate Angelenos killed while walking</p>" + 
         '</div>'+
         '</div>';
-    var contentStringCaffeine = '<div id="content">'+
+    var contentStringWalksB = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Caffeine Food Love</h6>'+
+        '<h6>Los Angeles Walks</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('caffeine.jpg') %>" + "></img>" +
+        "<p>Roving - 2:30 PM</p>" +
+        "<p>Walk the loop route to experience the event with Los Angeles Walks</p>" + 
         '</div>'+
         '</div>';
-    var contentStringHeart = '<div id="content">'+
+    var contentStringMarkso = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Heart Box</h6>'+
+        '<h6>Mark So</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('heart.jpg') %>" + "></img>" +
+        "<p>mayakovsky in toronto</p>" +
+        "<p>Download Only - All Day</p>" + 
         '</div>'+
         '</div>';
-    var contentStringConcrete = '<div id="content">'+
+    var contentStringPizza = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Concrete Nook</h6>'+
+        '<h6>Matt MacFarland</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('concrete.jpg') %>" + "></img>" +
+        "<p>Delicious Moments</p>" +
+        "<p>613 S Spring St - 12 PM - 5 PM</p>" + 
+        "<p>Pizza Box</p>" + 
         '</div>'+
         '</div>';
-    var contentStringSSPark = '<div id="content">'+
+    var contentStringBike = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Spring Street Park</h6>'+
+        '<h6>Max Markowitz & Joe Potts & Stuart Rapeport & Rebecca Guerrero & Sybil McMiller</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('sspark.jpg') %>" + "></img>" +
+        "<p>Bike coasting</p>" +
+        "<p>Biddy Mason Memorial Park - 11 AM - 2 PM</p>" + 
+        "<p>Sounds performed by altering bicycles</p>" + 
         '</div>'+
         '</div>';
-    var contentStringCone = '<div id="content">'+
+    var contentStringRip = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Cone / Alley</h6>'+
+        '<h6>Michael Rippens</h6>'+
         '<div class="mapBodyContent">'+
-        "<img src=" + "<%= escape_javascript asset_path('cone.jpg') %>" + "></img>" +
+        "<p>Desire Lines</p>" +
+        "<p>6th St (between Spring and Broadway) - 1 - 2:30 PM</p>" + 
+        "<p>Michael Rippens creates a temporary crosswalk using only his footprints</p>" + 
         '</div>'+
         '</div>';
-    var contentStringIndie = '<div id="content">'+
+    var contentStringGloss = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Downtown Independent</h6>'+
+        '<h6>Pauline Gloss</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>Three Dictaphones for Trans Day of Rememberance</p>" +
+        "<p>Spring Street Park (North End) - 12 PM - 4 PM</p>" + 
+        "<p>Three Dictaphones is a collective, participatory audio dialectic.</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringSmell = '<div id="content">'+
+    var contentStringRob = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>The Smell</h6>'+
+        '<h6>Robert Frashure and Miggie Wong</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>Magic Photo Booth</p>" +
+        "<p>433 S Main St</p>" +  
+        '</div>'+
         '</div>';
-    var contentStringJalisco = '<div id="content">'+
+    var contentStringWord = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>The New Jalisco Bar</h6>'+
+        '<h6>Scott Froschauer</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>The Word on the Street</p>" +
+        "<p>Main / 1st NE Corner - All Day</p>" + 
+        "<p>Street Sign Art</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringLast = '<div id="content">'+
+    var contentStringSilu = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>The Last Bookstore</h6>'+
+        '<h6>Siluspress</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>Stop for Poetry</p>" +
+        "<p>Main / 5th - 1 PM</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringSpringPark = '<div id="content">'+
+    var contentStringSimone = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Spring Street Park</h6>'+
+        '<h6>Simone Gad</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>PEDESTRIAN TRAFFIC IN LOS FELIZ AND CHINATOWN - a spoken word performance piece</p>" +
+        "<p>511 S Spring St - 11 AM - 11:30 AM</p>" + 
+        "<p>walking in my neighborhood and in chinatown as a petite partially disabled senior citizen artist avoiding being hit by cars, bikes and joggers</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringWfAtm = '<div id="content">'+
+    var contentStringSir = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Wells Fargo: ATM</h6>'+
+        '<h6>Sir Oliver</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>6th/Spring</p>" +
+        '</div>'+
         '</div>';
-    var contentStringLATimes = '<div id="content">'+
+    var contentStringSkip = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>The LA Times</h6>'+
+        '<h6>Skip Snow & Oscar David Alvarez</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>A house is not a home: Remembering the homeless</p>" +
+        "<p>8th/Main NW Corner - 1 PM - 4 PM</p>" + 
+        "<p>A house made of art to create a conversation about the homeless</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringLAPD = '<div id="content">'+
+    var contentStringSusan = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Los Angeles Police Department</h6>'+
+        '<h6>Susan Joseph</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>4th Street Remembrance, a sound performance</p>" +
+        "<p>840 S Spring St - 1-3 PM</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringTransport = '<div id="content">'+
+    var contentStringSuz = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>California Department of Transportation (Caltrans)</h6>'+
+        '<h6>Suzanne Joskow and Henderson Blumer</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>A People's History of Protest Apparel</p>" +
+        "<p>721 S Spring St - 11 AM - 1 PM</p>" + 
+        "<p>Collaborative workshop discussing history of protest apparel and new designs</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringSkid = '<div id="content">'+
+    var contentStringSyn = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Skid Row Housing Trust Tenant</h6>'+
+        '<h6>Synesthesia and Opera Del Espacio</h6>'+
+        '<h6>(Daphne Gabriel, Alain Thai, Tanya Kane-Parry, Melanie Keller, Sophie Goldstein)</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>Text Me</p>" +
+        "<p>Main / between 8th and 9th - 12 - 3 PM</p>" + 
+        "<p>Exploration of humans in space without human connection</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringLofts = '<div id="content">'+
+    var contentStringTucker = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>PE Lofts</h6>'+
+        '<h6>Tucker Neel</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>It's Not Just Art</p>" +
+        "<p>DOWNLOADABLE/ROVING - All Day</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringVanNuys = '<div id="content">'+
+    var contentStringTracy = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Van Nuys Apartments</h6>'+
+        '<h6>Tracy Mollis</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>View Online Only - All Day</p>" + 
+        "<p>Painting of clouds on LARoadConcerts.com</p>" +
+        '</div>'+
         '</div>';
-    var contentStringPremiere = '<div id="content">'+
+    var contentStringWig = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Premiere Towers</h6>'+
+        '<h6>Vitamin Wig C</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>Honda Toyota</p>" +
+        "<p>9th/Spring</p>" + 
+        "<p>An Ambient Protest Song To Enlighten Those In Passing</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringImmigration = '<div id="content">'+
+    var contentStringBen = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Immigration Center For Women and Children</h6>'+
+        '<h6>Benjamin Desvallées</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>725 S Spring St - 4:30 PM - 5:30 PM</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringSpringMac = '<div id="content">'+
+    var contentStringTake = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Spring Street Mac - iPhone & Mac Repair</h6>'+
+        '<h6>Zeina Baltagi</h6>'+
+        '<div class="mapBodyContent">'+
+        '<p>Take It Lying Down</p>' +
+        "<p>725 S Spring St - 4:30 PM - 5:30 PM</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringPostal = '<div id="content">'+
+    var contentStringNiko = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>United States Postal Service</h6>'+
+        '<h6>Niko Solorio</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>725 S Spring St - 4:30 PM - 5:30 PM</p>" + 
+        '</div>'+
         '</div>';
-    var contentStringClaudio = '<div id="content">'+
+    var contentStringIhug = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h6>Claudio Ethos Mural</h6>'+
+        '<h6>IHUG</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>725 S Spring St - 4:30 PM - 5:30 PM</p>" + 
+        '</div>'+
         '</div>';
-    var markerReagan = new google.maps.Marker({
-      position: reagan,
+    var contentStringJes = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h6>Reception at Jessica’s</h6>'+
+        '<div class="mapBodyContent">'+
+        "<p>725 S Spring St - 4:30 PM - 6:00 PM</p>" + 
+        '</div>'+
+        '</div>';
+    // NEW MARKERS
+    var markerKhost = new google.maps.Marker({
+      position: khost,
       map: mapInteractive,
-      title: 'Ronald Reagan State Building',
-      icon: "<%= escape_javascript asset_path('statebuilding_icon.png') %>"
+      title: 'In Memoriam: A Funeral Procession for the Death of Love',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerCityHall = new google.maps.Marker({
-      position: cityHall,
+    var markerLewis = new google.maps.Marker({
+      position: lewis,
       map: mapInteractive,
-      title: 'Los Angeles City Hall',
-      icon: "<%= escape_javascript asset_path('statebuilding_icon.png') %>"
+      title: 'A Charles to Keep',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerIndie = new google.maps.Marker({
-      position: indie,
+    var markerWitten = new google.maps.Marker({
+      position: witten,
       map: mapInteractive,
-      title: 'Downtown Independent',
-      icon: "<%= escape_javascript asset_path('camera_icon.png') %>"
+      title: 'Tubes in Love / Chains',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSmell = new google.maps.Marker({
-      position: smell,
+    var markerGuthrie = new google.maps.Marker({
+      position: guthrie,
       map: mapInteractive,
-      title: 'The Smell',
-      icon: "<%= escape_javascript asset_path('music_icon.png') %>"
+      title: 'April Guthrie',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerJalisco = new google.maps.Marker({
-      position: jalisco,
+    var markerDstl = new google.maps.Marker({
+      position: dstl,
       map: mapInteractive,
-      title: 'The New Jalisco Bar',
-      icon: "<%= escape_javascript asset_path('bottle_icon.png') %>"
+      title: 'Crusa Caminos - Crossing Paths',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerLast = new google.maps.Marker({
-      position: last,
+    var markerFie = new google.maps.Marker({
+      position: fie,
       map: mapInteractive,
-      title: 'The Last Bookstore',
-      icon: "<%= escape_javascript asset_path('book_icon.png') %>"
+      title: 'Beth Fiedorek',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSpringPark = new google.maps.Marker({
-      position: springPark,
+    var markerLuj = new google.maps.Marker({
+      position: luj,
       map: mapInteractive,
-      title: 'Spring Street Park',
-      icon: "<%= escape_javascript asset_path('park_icon.png') %>"
+      title: 'Dimensionless Dimensions',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerWfAtm = new google.maps.Marker({
-      position: wfATM,
+    var markerCLuj = new google.maps.Marker({
+      position: cluj,
       map: mapInteractive,
-      title: 'Wells Fargo: ATM',
-      icon: "<%= escape_javascript asset_path('dollar_icon.png') %>"
+      title: 'Snapchat Filter',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerLATimes = new google.maps.Marker({
-      position: times,
+    var markerKeyhole = new google.maps.Marker({
+      position: keyhole,
       map: mapInteractive,
-      title: 'Los Angeles Times',
-      icon: "<%= escape_javascript asset_path('news_icon.png') %>"
+      title: 'Keyhole Listening (2010-11, rev. 2016)',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerLAPD = new google.maps.Marker({
-      position: lapd,
+    var markerSarg = new google.maps.Marker({
+      position: sarg,
       map: mapInteractive,
-      title: 'Los Angeles Police Department',
-      icon: "<%= escape_javascript asset_path('police_icon.png') %>"
+      title: 'Reverse Count',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerTransport = new google.maps.Marker({
-      position: transport,
+    var markerJon = new google.maps.Marker({
+      position: jon,
       map: mapInteractive,
-      title: 'California Department of Transportation (Caltrans)',
-      icon: "<%= escape_javascript asset_path('bus_icon.png') %>"
+      title: 'Jonathan Gomez',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSkid = new google.maps.Marker({
-      position: skid,
+    var markerJoy = new google.maps.Marker({
+      position: joy,
       map: mapInteractive,
-      title: 'Skid Row Housing Trust Tenant',
-      icon: "<%= escape_javascript asset_path('house_icon.png') %>"
+      title: 'Poetry/Thoughts N Things',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerLofts = new google.maps.Marker({
-      position: lofts,
+    var markerLap = new google.maps.Marker({
+      position: lap,
       map: mapInteractive,
-      title: 'PE Lofts',
-      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
+      title: 'L.A.P. (Love, Art, Participation) Dancers',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerVanNuys = new google.maps.Marker({
-      position: vanNuys,
+    var markerRaven = new google.maps.Marker({
+      position: raven,
       map: mapInteractive,
-      title: 'Van Nuys Apartments',
-      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
+      title: 'Goodbye Wells Fargo',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerPremiere = new google.maps.Marker({
-      position: premiere,
+    var markerWalks = new google.maps.Marker({
+      position: walks,
       map: mapInteractive,
-      title: 'Premiere Towers',
-      icon: "<%= escape_javascript asset_path('apartment_icon.png') %>"
+      title: 'Los Angeles Walks',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerImmigration = new google.maps.Marker({
-      position: immigration,
+    var markerWalksB = new google.maps.Marker({
+      position: walksB,
       map: mapInteractive,
-      title: 'Immigration Center For Women and Children',
-      icon: "<%= escape_javascript asset_path('woman_icon.png') %>"
+      title: 'Los Angeles Walks',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSpringMac = new google.maps.Marker({
-      position: springMac,
+    var markerMarkso = new google.maps.Marker({
+      position: markso,
       map: mapInteractive,
-      title: 'Spring Street Mac - iPhone & Mac Repair',
-      icon: "<%= escape_javascript asset_path('apple_icon.png') %>"
+      title: 'Mark So',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerPostal = new google.maps.Marker({
-      position: postal,
+    var markerPizza = new google.maps.Marker({
+      position: pizza,
       map: mapInteractive,
-      title: 'United States Postal Service',
-      icon: "<%= escape_javascript asset_path('mail_icon.png') %>"
+      title: 'Delicious Moments',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerClaudio = new google.maps.Marker({
-      position: claudio,
+    var markerBike = new google.maps.Marker({
+      position: bike,
       map: mapInteractive,
-      title: 'Claudio Ethos Mural',
-      icon: "<%= escape_javascript asset_path('art_icon.png') %>"
+      title: 'Bike coasting',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerGlasgow = new google.maps.Marker({
-      position: glasgow,
+    var markerRip = new google.maps.Marker({
+      position: rip,
       map: mapInteractive,
-      title: 'Claudio Ethos Mural',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'Desire Lines',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerBarclay = new google.maps.Marker({
-      position: glasgow,
+    var markerGloss = new google.maps.Marker({
+      position: gloss,
       map: mapInteractive,
-      title: 'Hotel Barclay',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'Three Dictaphones for Trans Day of Rememberance',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSmain = new google.maps.Marker({
-      position: smain,
+    var markerRob = new google.maps.Marker({
+      position: rob,
       map: mapInteractive,
-      title: 'Hotel Barclay',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'Magic Photo Booth',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerHi = new google.maps.Marker({
-      position: hi,
+    var markerWord = new google.maps.Marker({
+      position: word,
       map: mapInteractive,
-      title: 'Hotel Barclay',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'The Word on the Street',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerCaged = new google.maps.Marker({
-      position: caged,
+    var markerSilu = new google.maps.Marker({
+      position: silu,
       map: mapInteractive,
-      title: 'Hotel Barclay',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'Stop for Poetry',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerFjah = new google.maps.Marker({
-      position: fjah,
+    var markerSimone = new google.maps.Marker({
+      position: simone,
       map: mapInteractive,
-      title: 'Hotel Barclay',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'PEDESTRIAN TRAFFIC IN LOS FELIZ AND CHINATOWN - a spoken word performance piece',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerObsc = new google.maps.Marker({
-      position: obsc,
+    var markerSir = new google.maps.Marker({
+      position: sir,
       map: mapInteractive,
-      title: 'Building Obscuring Name',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'Sir Oliver',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerFdc = new google.maps.Marker({
-      position: fdc,
+    var markerSkip = new google.maps.Marker({
+      position: skip,
       map: mapInteractive,
-      title: 'FDC Truck',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: 'A house is not a home: Remembering the homeless',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerTreetriangle = new google.maps.Marker({
-      position: treetriangle,
+    var markerSusan = new google.maps.Marker({
+      position: susan,
       map: mapInteractive,
-      title: 'Tree Triangle',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: '4th Street Remembrance, a sound performance',
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerBikelane = new google.maps.Marker({
-      position: bikelane,
+    var markerSuz = new google.maps.Marker({
+      position: suz,
       map: mapInteractive,
-      title: 'Bike Lane',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "A People's History of Protest Apparel",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerPublicphone = new google.maps.Marker({
-      position: publicphone,
+    var markerSyn = new google.maps.Marker({
+      position: syn,
       map: mapInteractive,
-      title: 'Bike Lane',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Text Me",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerDetour = new google.maps.Marker({
-      position: detour,
+    var markerTucker = new google.maps.Marker({
+      position: tucker,
       map: mapInteractive,
-      title: 'Detour Space',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "It's Not Just Art",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerTables = new google.maps.Marker({
-      position: tables,
+    var markerTracy = new google.maps.Marker({
+      position: tracy,
       map: mapInteractive,
-      title: 'Some Tables',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Painting of Clouds",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerArcade = new google.maps.Marker({
-      position: arcade,
+    var markerWig = new google.maps.Marker({
+      position: wig,
       map: mapInteractive,
-      title: 'Spring Arcade Building',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Honda Toyota",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerTheatreCenter = new google.maps.Marker({
-      position: theatrecenter,
+    var markerBen = new google.maps.Marker({
+      position: ben,
       map: mapInteractive,
-      title: 'Los Angeles Theatre Center',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Benjamin Desvallées",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerCaffeine = new google.maps.Marker({
-      position: caffeine,
+    var markerTake = new google.maps.Marker({
+      position: take,
       map: mapInteractive,
-      title: 'Caffeine Food Love',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Take It Lying Down",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerHeart = new google.maps.Marker({
-      position: heart,
+    var markerNiko = new google.maps.Marker({
+      position: niko,
       map: mapInteractive,
-      title: 'Heart Box',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Niko Solorio",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerConcrete = new google.maps.Marker({
-      position: concrete,
+    var markerIhug = new google.maps.Marker({
+      position: ihug,
       map: mapInteractive,
-      title: 'Concrete Nook',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "IHUG",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerSSPark = new google.maps.Marker({
-      position: sspark,
+    var markerJes = new google.maps.Marker({
+      position: jes,
       map: mapInteractive,
-      title: 'Spring Street Park',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
+      title: "Reception at Jessica's",
+      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
     });
-    var markerCone = new google.maps.Marker({
-      position: cone,
-      map: mapInteractive,
-      title: 'Cone / Alley',
-      icon: "<%= escape_javascript asset_path('picture_icon.png') %>"
-    });
-    markerReagan.addListener('click', function(){
+    // NEW STUFF
+    markerKhost.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringReagan);
-    infowindow.open(mapInteractive, markerReagan);
+    infowindow.setContent(contentStringKhost);
+    infowindow.open(mapInteractive, markerKhost);
     });
-    $('#reaganL').click(function(){
+    $('#khost').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringReagan);
-    infowindow.open(mapInteractive, markerReagan);
+    infowindow.setContent(contentStringKhost);
+    infowindow.open(mapInteractive, markerKhost);
     });
-    markerGlasgow.addListener('click', function(){
+    markerLewis.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringGlasgow);
-    infowindow.open(mapInteractive, markerGlasgow);
+    infowindow.setContent(contentStringLewis);
+    infowindow.open(mapInteractive, markerLewis);
     });
-    $('#glasgow').click(function(){
+    $('#lewis').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringGlasgow);
-    infowindow.open(mapInteractive, markerGlasgow);
+    infowindow.setContent(contentStringLewis);
+    infowindow.open(mapInteractive, markerLewis);
     });
-    markerBarclay.addListener('click', function(){
+    markerWitten.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringBarclay);
-    infowindow.open(mapInteractive, markerBarclay);
+    infowindow.setContent(contentStringWitten);
+    infowindow.open(mapInteractive, markerWitten);
     });
-    $('#barclay').click(function(){
+    $('#witten').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringBarclay);
-    infowindow.open(mapInteractive, markerBarclay);
+    infowindow.setContent(contentStringWitten);
+    infowindow.open(mapInteractive, markerWitten);
     });
-    markerSmain.addListener('click', function(){
+    markerGuthrie.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSmain);
-    infowindow.open(mapInteractive, markerSmain);
+    infowindow.setContent(contentStringGuthrie);
+    infowindow.open(mapInteractive, markerGuthrie);
     });
-    $('#Smain').click(function(){
+    $('#guthrie').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSmain);
-    infowindow.open(mapInteractive, markerSmain);
+    infowindow.setContent(contentStringGuthrie);
+    infowindow.open(mapInteractive, markerGuthrie);
     });
-    markerHi.addListener('click', function(){
+    markerDstl.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringHi);
-    infowindow.open(mapInteractive, markerHi);
+    infowindow.setContent(contentStringDstl);
+    infowindow.open(mapInteractive, markerDstl);
     });
-    $('#hi').click(function(){
+    $('#dstl').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringHi);
-    infowindow.open(mapInteractive, markerHi);
+    infowindow.setContent(contentStringDstl);
+    infowindow.open(mapInteractive, markerDstl);
     });
-    markerCaged.addListener('click', function(){
+    markerFie.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringCaged);
-    infowindow.open(mapInteractive, markerCaged);
+    infowindow.setContent(contentStringFie);
+    infowindow.open(mapInteractive, markerFie);
     });
-    $('#caged').click(function(){
+    $('#fie').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringCaged);
-    infowindow.open(mapInteractive, markerCaged);
+    infowindow.setContent(contentStringFie);
+    infowindow.open(mapInteractive, markerFie);
     });
-    markerFjah.addListener('click', function(){
+    markerLuj.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringFjah);
-    infowindow.open(mapInteractive, markerFjah);
+    infowindow.setContent(contentStringLuj);
+    infowindow.open(mapInteractive, markerLuj);
     });
-    $('#fjah').click(function(){
+    $('#luj').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringFjah);
-    infowindow.open(mapInteractive, markerFjah);
+    infowindow.setContent(contentStringLuj);
+    infowindow.open(mapInteractive, markerLuj);
     });
-    markerObsc.addListener('click', function(){
+    markerCLuj.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringObsc);
-    infowindow.open(mapInteractive, markerObsc);
+    infowindow.setContent(contentStringCLuj);
+    infowindow.open(mapInteractive, markerCLuj);
     });
-    $('#obsc').click(function(){
+    $('#cluj').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringObsc);
-    infowindow.open(mapInteractive, markerObsc);
+    infowindow.setContent(contentStringCLuj);
+    infowindow.open(mapInteractive, markerCLuj);
     });
-    markerFdc.addListener('click', function(){
+    google.maps.event.addListener(mapInteractive, "click", function(event){
+    infowindow.close();
+    });
+    markerKeyhole.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringFdc);
-    infowindow.open(mapInteractive, markerFdc);
+    infowindow.setContent(contentStringKeyhole);
+    infowindow.open(mapInteractive, markerKeyhole);
     });
-    $('#fdc').click(function(){
+    $('#keyhole').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringFdc);
-    infowindow.open(mapInteractive, markerFdc);
+    infowindow.setContent(contentStringKeyhole);
+    infowindow.open(mapInteractive, markerKeyhole);
     });
-    markerTreetriangle.addListener('click', function(){
+    markerSarg.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringTreetriangle);
-    infowindow.open(mapInteractive, markerTreetriangle);
+    infowindow.setContent(contentStringSarg);
+    infowindow.open(mapInteractive, markerSarg);
     });
-    $('#treetriangle').click(function(){
+    $('#sarg').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringTreetriangle);
-    infowindow.open(mapInteractive, markerTreetriangle);
+    infowindow.setContent(contentStringSarg);
+    infowindow.open(mapInteractive, markerSarg);
     });
-    markerBikelane.addListener('click', function(){
+    markerJon.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringBikelane);
-    infowindow.open(mapInteractive, markerBikelane);
+    infowindow.setContent(contentStringJon);
+    infowindow.open(mapInteractive, markerJon);
     });
-    $('#bikelane').click(function(){
+    $('#jon').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringBikelane);
-    infowindow.open(mapInteractive, markerBikelane);
+    infowindow.setContent(contentStringJon);
+    infowindow.open(mapInteractive, markerJon);
     });
-    markerPublicphone.addListener('click', function(){
+    markerJoy.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringPublicphone);
-    infowindow.open(mapInteractive, markerPublicphone);
+    infowindow.setContent(contentStringJoy);
+    infowindow.open(mapInteractive, markerJoy);
     });
-    $('#publicphone').click(function(){
+    $('#joy').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringPublicphone);
-    infowindow.open(mapInteractive, markerPublicphone);
+    infowindow.setContent(contentStringJoy);
+    infowindow.open(mapInteractive, markerJoy);
     });
-    markerDetour.addListener('click', function(){
+    markerLap.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringDetour);
-    infowindow.open(mapInteractive, markerDetour);
+    infowindow.setContent(contentStringLap);
+    infowindow.open(mapInteractive, markerLap);
     });
-    $('#detour').click(function(){
+    $('#lap').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringDetour);
-    infowindow.open(mapInteractive, markerDetour);
+    infowindow.setContent(contentStringLap);
+    infowindow.open(mapInteractive, markerLap);
     });
-    markerTables.addListener('click', function(){
+    markerRaven.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringTables);
-    infowindow.open(mapInteractive, markerTables);
+    infowindow.setContent(contentStringRaven);
+    infowindow.open(mapInteractive, markerRaven);
     });
-    $('#tables').click(function(){
+    $('#raven').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringTables);
-    infowindow.open(mapInteractive, markerTables);
+    infowindow.setContent(contentStringRaven);
+    infowindow.open(mapInteractive, markerRaven);
     });
-    markerArcade.addListener('click', function(){
+    markerWalks.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringArcade);
-    infowindow.open(mapInteractive, markerArcade);
+    infowindow.setContent(contentStringWalks);
+    infowindow.open(mapInteractive, markerWalks);
     });
-    $('#arcade').click(function(){
+    $('#walks').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringArcade);
-    infowindow.open(mapInteractive, markerArcade);
+    infowindow.setContent(contentStringWalks);
+    infowindow.open(mapInteractive, markerWalks);
     });
-    markerTheatreCenter.addListener('click', function(){
+    markerWalksB.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringTheatreCenter);
-    infowindow.open(mapInteractive, markerTheatreCenter);
+    infowindow.setContent(contentStringWalksB);
+    infowindow.open(mapInteractive, markerWalksB);
     });
-    $('#theatrecenter').click(function(){
+    $('#walksB').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringTheatreCenter);
-    infowindow.open(mapInteractive, markerTheatreCenter);
+    infowindow.setContent(contentStringWalksB);
+    infowindow.open(mapInteractive, markerWalksB);
     });
-    markerCaffeine.addListener('click', function(){
+    markerMarkso.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringCaffeine);
-    infowindow.open(mapInteractive, markerCaffeine);
+    infowindow.setContent(contentStringMarkso);
+    infowindow.open(mapInteractive, markerMarkso);
     });
-    $('#caffeine').click(function(){
+    $('#markso').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringCaffeine);
-    infowindow.open(mapInteractive, markerCaffeine);
+    infowindow.setContent(contentStringMarkso);
+    infowindow.open(mapInteractive, markerMarkso);
     });
-    markerHeart.addListener('click', function(){
+    markerPizza.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringHeart);
-    infowindow.open(mapInteractive, markerHeart);
+    infowindow.setContent(contentStringPizza);
+    infowindow.open(mapInteractive, markerPizza);
     });
-    $('#heart').click(function(){
+    $('#pizza').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringHeart);
-    infowindow.open(mapInteractive, markerHeart);
+    infowindow.setContent(contentStringPizza);
+    infowindow.open(mapInteractive, markerPizza);
     });
-    markerConcrete.addListener('click', function(){
+    markerBike.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringConcrete);
-    infowindow.open(mapInteractive, markerConcrete);
+    infowindow.setContent(contentStringBike);
+    infowindow.open(mapInteractive, markerBike);
     });
-    $('#concrete').click(function(){
+    $('#bike').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringConcrete);
-    infowindow.open(mapInteractive, markerConcrete);
+    infowindow.setContent(contentStringBike);
+    infowindow.open(mapInteractive, markerBike);
     });
-    markerSSPark.addListener('click', function(){
+    markerRip.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSSPark);
-    infowindow.open(mapInteractive, markerSSPark);
+    infowindow.setContent(contentStringRip);
+    infowindow.open(mapInteractive, markerRip);
     });
-    $('#sspark').click(function(){
+    $('#rip').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSSPark);
-    infowindow.open(mapInteractive, markerSSPark);
+    infowindow.setContent(contentStringRip);
+    infowindow.open(mapInteractive, markerRip);
     });
-    markerCone.addListener('click', function(){
+    markerGloss.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringCone);
-    infowindow.open(mapInteractive, markerCone);
+    infowindow.setContent(contentStringGloss);
+    infowindow.open(mapInteractive, markerGloss);
     });
-    $('#cone').click(function(){
+    $('#gloss').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringCone);
-    infowindow.open(mapInteractive, markerCone);
+    infowindow.setContent(contentStringGloss);
+    infowindow.open(mapInteractive, markerGloss);
     });
-    markerCityHall.addListener('click', function(){
+    markerRob.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringCityHall);
-    infowindow.open(mapInteractive, markerCityHall);
+    infowindow.setContent(contentStringRob);
+    infowindow.open(mapInteractive, markerRob);
     });
-    $('#cityhallL').click(function(){
+    $('#rob').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringCityHall);
-    infowindow.open(mapInteractive, markerCityHall);
+    infowindow.setContent(contentStringRob);
+    infowindow.open(mapInteractive, markerRob);
     });
-    markerIndie.addListener('click', function(){
+    markerWord.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringIndie);
-    infowindow.open(mapInteractive, markerIndie);
+    infowindow.setContent(contentStringWord);
+    infowindow.open(mapInteractive, markerWord);
     });
-    $('#indieL').click(function(){
+    $('#word').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringIndie);
-    infowindow.open(mapInteractive, markerIndie);
+    infowindow.setContent(contentStringWord);
+    infowindow.open(mapInteractive, markerWord);
     });
-    markerSmell.addListener('click', function(){
+    markerSilu.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSmell);
-    infowindow.open(mapInteractive, markerSmell);
+    infowindow.setContent(contentStringSilu);
+    infowindow.open(mapInteractive, markerSilu);
     });
-    $('#smellL').click(function(){
+    $('#silu').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSmell);
-    infowindow.open(mapInteractive, markerSmell);
+    infowindow.setContent(contentStringSilu);
+    infowindow.open(mapInteractive, markerSilu);
     });
-    markerJalisco.addListener('click', function(){
+    markerSimone.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringJalisco);
-    infowindow.open(mapInteractive, markerJalisco);
+    infowindow.setContent(contentStringSimone);
+    infowindow.open(mapInteractive, markerSimone);
     });
-    $('#jaliscoL').click(function(){
+    $('#simone').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringJalisco);
-    infowindow.open(mapInteractive, markerJalisco);
+    infowindow.setContent(contentStringSimone);
+    infowindow.open(mapInteractive, markerSimone);
     });
-    markerLast.addListener('click', function(){
+    markerSir.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringLast);
-    infowindow.open(mapInteractive, markerLast);
+    infowindow.setContent(contentStringSir);
+    infowindow.open(mapInteractive, markerSir);
     });
-    $('#lastL').click(function(){
+    $('#sir').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringLast);
-    infowindow.open(mapInteractive, markerLast);
+    infowindow.setContent(contentStringSir);
+    infowindow.open(mapInteractive, markerSir);
     });
-    markerSpringPark.addListener('click', function(){
+    markerSkip.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSpringPark);
-    infowindow.open(mapInteractive, markerSpringPark);
+    infowindow.setContent(contentStringSkip);
+    infowindow.open(mapInteractive, markerSkip);
     });
-    $('#springL').click(function(){
+    $('#skip').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSpringPark);
-    infowindow.open(mapInteractive, markerSpringPark);
+    infowindow.setContent(contentStringSkip);
+    infowindow.open(mapInteractive, markerSkip);
     });
-    markerWfAtm.addListener('click', function(){
+    markerSusan.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringWfAtm);
-    infowindow.open(mapInteractive, markerWfAtm);
+    infowindow.setContent(contentStringSusan);
+    infowindow.open(mapInteractive, markerSusan);
     });
-    $('#wfATML').click(function(){
+    $('#susan').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringWfAtm);
-    infowindow.open(mapInteractive, markerWfAtm);
+    infowindow.setContent(contentStringSusan);
+    infowindow.open(mapInteractive, markerSusan);
     });
-    markerLATimes.addListener('click', function(){
+    markerSuz.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringLATimes);
-    infowindow.open(mapInteractive, markerLATimes);
+    infowindow.setContent(contentStringSuz);
+    infowindow.open(mapInteractive, markerSuz);
     });
-    $('#latL').click(function(){
+    $('#suz').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringLATimes);
-    infowindow.open(mapInteractive, markerLATimes);
+    infowindow.setContent(contentStringSuz);
+    infowindow.open(mapInteractive, markerSuz);
     });
-    markerLAPD.addListener('click', function(){
+    markerSyn.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringLAPD);
-    infowindow.open(mapInteractive, markerLAPD);
+    infowindow.setContent(contentStringSyn);
+    infowindow.open(mapInteractive, markerSyn);
     });
-    $('#lapdL').click(function(){
+    $('#syn').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringLAPD);
-    infowindow.open(mapInteractive, markerLAPD);
+    infowindow.setContent(contentStringSyn);
+    infowindow.open(mapInteractive, markerSyn);
     });
-    markerTransport.addListener('click', function(){
+    markerTucker.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringTransport);
-    infowindow.open(mapInteractive, markerTransport);
+    infowindow.setContent(contentStringTucker);
+    infowindow.open(mapInteractive, markerTucker);
     });
-    $('#transL').click(function(){
+    $('#tucker').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringTransport);
-    infowindow.open(mapInteractive, markerTransport);
+    infowindow.setContent(contentStringTucker);
+    infowindow.open(mapInteractive, markerTucker);
     });
-    markerSkid.addListener('click', function(){
+    markerTracy.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSkid);
-    infowindow.open(mapInteractive, markerSkid);
+    infowindow.setContent(contentStringTracy);
+    infowindow.open(mapInteractive, markerTracy);
     });
-    $('#skidL').click(function(){
+    $('#tracy').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSkid);
-    infowindow.open(mapInteractive, markerSkid);
+    infowindow.setContent(contentStringTracy);
+    infowindow.open(mapInteractive, markerTracy);
     });
-    markerLofts.addListener('click', function(){
+    markerWig.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringLofts);
-    infowindow.open(mapInteractive, markerLofts);
+    infowindow.setContent(contentStringWig);
+    infowindow.open(mapInteractive, markerWig);
     });
-    $('#loftL').click(function(){
+    $('#wig').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringLofts);
-    infowindow.open(mapInteractive, markerLofts);
+    infowindow.setContent(contentStringWig);
+    infowindow.open(mapInteractive, markerWig);
     });
-    markerVanNuys.addListener('click', function(){
+    markerBen.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringVanNuys);
-    infowindow.open(mapInteractive, markerVanNuys);
+    infowindow.setContent(contentStringBen);
+    infowindow.open(mapInteractive, markerBen);
     });
-    $('#vanL').click(function(){
+    $('#ben').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringVanNuys);
-    infowindow.open(mapInteractive, markerVanNuys);
+    infowindow.setContent(contentStringBen);
+    infowindow.open(mapInteractive, markerBen);
     });
-    markerPremiere.addListener('click', function(){
+    markerTake.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringPremiere);
-    infowindow.open(mapInteractive, markerPremiere);
+    infowindow.setContent(contentStringTake);
+    infowindow.open(mapInteractive, markerTake);
     });
-    $('#premL').click(function(){
+    $('#take').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringPremiere);
-    infowindow.open(mapInteractive, markerPremiere);
+    infowindow.setContent(contentStringTake);
+    infowindow.open(mapInteractive, markerTake);
     });
-    markerImmigration.addListener('click', function(){
+    markerNiko.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringImmigration);
-    infowindow.open(mapInteractive, markerImmigration);
+    infowindow.setContent(contentStringNiko);
+    infowindow.open(mapInteractive, markerNiko);
     });
-    $('#imL').click(function(){
+    $('#niko').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringImmigration);
-    infowindow.open(mapInteractive, markerImmigration);
+    infowindow.setContent(contentStringNiko);
+    infowindow.open(mapInteractive, markerNiko);
     });
-    markerSpringMac.addListener('click', function(){
+    markerIhug.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringSpringMac);
-    infowindow.open(mapInteractive, markerSpringMac);
+    infowindow.setContent(contentStringIhug);
+    infowindow.open(mapInteractive, markerIhug);
     });
-    $('#macL').click(function(){
+    $('#ihug').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringSpringMac);
-    infowindow.open(mapInteractive, markerSpringMac);
+    infowindow.setContent(contentStringIhug);
+    infowindow.open(mapInteractive, markerIhug);
     });
-    markerPostal.addListener('click', function(){
+    markerJes.addListener('click', function(){
     infowindow.close()
-    infowindow.setContent(contentStringPostal);
-    infowindow.open(mapInteractive, markerPostal);
+    infowindow.setContent(contentStringJes);
+    infowindow.open(mapInteractive, markerJes);
     });
-    $('#postalL').click(function(){
+    $('#jes').click(function(){
     infowindow.close();
-    infowindow.setContent(contentStringPostal);
-    infowindow.open(mapInteractive, markerPostal);
-    });
-    markerClaudio.addListener('click', function(){
-    infowindow.close()
-    infowindow.setContent(contentStringClaudio);
-    infowindow.open(mapInteractive, markerClaudio);
-    });
-    $('#claudioL').click(function(){
-    infowindow.close();
-    infowindow.setContent(contentStringClaudio);
-    infowindow.open(mapInteractive, markerClaudio);
+    infowindow.setContent(contentStringJes);
+    infowindow.open(mapInteractive, markerJes);
     });
     google.maps.event.addListener(mapInteractive, "click", function(event){
     infowindow.close();
