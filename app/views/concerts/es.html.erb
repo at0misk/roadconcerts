@@ -72,6 +72,9 @@ window.onbeforeunload = function () {
    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
    <style>
+   #dlart{
+    font-size: 2em;
+   }
    .collapsible-body p{
     padding: 1em;
    }
@@ -363,6 +366,7 @@ width: 100%;
         <li><a href="#map">El Mapa Interactivo</a></li>
         <span class="submission-form"><li><%= link_to 'Imprimible PDF', 'Day_of_Remembrance_Road_Concert_Program_Map.pdf', download: '' %></li></span>
         <li><a href="#artists">Artistas</a></li>
+        <li><a href="#dlart">Downloadable Art</a></li>
         <li><a href="#mailinglist">Suscríbase</a></li>
         <li><a href="#social">Twitter Instagram</a></li>
         <li><a href="https://www.facebook.com/laroadconcerts/" target="_blank">Facebook</a></li>
@@ -536,6 +540,7 @@ width: 100%;
         <li id="wig"><%= image_tag 'location.png' %>Vitamin Wig C</li>
         <li id="take"><%= image_tag 'location.png' %>Zeina Baltagi</li>
   </ul>
+  <h3><%= link_to 'Printable PDF', 'Day_of_Remembrance_Road_Concert_Program_Map.pdf', download: '' %></h3>
   </div>
   </div>
 </div>
@@ -755,11 +760,9 @@ width: 100%;
     <div class="collapsible-body">
 <p>Biddy Mason Memorial Park - 11 AM - 2 PM</p>
 <p>Sounds performed by altering bicycles</p>
- </div>
-  </li>
-<li>
-    <div class="collapsible-header active"><i class="material-icons">filter_drama</i><span class="blue-text text-darken-4 artist">R E B E C A   G U E R R E R O</span></div>
-    <div class="collapsible-body">
+
+
+<p>R E B E C A   G U E R R E R O</p>
 <p>My artistic career has culminated after a long identity and career search.
 During this period I have done some traveling. Although I was born in Los
 Angeles, I lived in Baja for many years and also lived in Europe. I
@@ -960,12 +963,33 @@ Displaced Persons after the War. We became US Citizens in 1956.</p>
  </div>
   </li>
 </ul>
+</div>
+    <div class="parallax-container par2">
+    <h4 class="call-header">Downloadable Art</h4>
+    <div class="parallax">
+      <%= image_tag 'bg1.png' %>
+    </div>
+  </div>
+    <div class="section white">
+      <div class="row container section scrollspy" id="dlart">
+        <div class="section white">
+        <div class="parallax-container par3">
+          <div class="row sub-form-row">
+          <div class="col s12 formOut">
 <div id="downloads">
-<h5>Downloadable Art</h5>
+<h2>Downloadable Art</h2>
 <p><%= link_to "It's Not Just Art - Tucker Neel", 'ITS_NOT_JUST_ART.pdf', download: '' %></p>
 <p><%= link_to 'mayakovsky in toronto - Mark So', 'mayakovsky_in_toronto.pdf', download: '' %></p>
 </div>
-</div>
+          </div>
+          <div class="col s12 formIn">
+            <h4>Thank you for joining the mailing list!</h4>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="parallax-container par2" title="Wind Chimes de Carolyn Chen">
     <h3 class="call-header">Suscríbase</h3>
     <div class="parallax">
