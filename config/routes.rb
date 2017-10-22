@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'concerts#index'
+  root 'concerts#national_and_washington'
   post 'mail' => 'concerts#mail'
   get 'es' => 'concerts#es'
+  get 'remembrance' => 'concerts#remembrance'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
