@@ -1,9 +1,12 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Raleway" rel="stylesheet">
+<meta name="viewport" content="width=device-width">
+<script src="https://use.fontawesome.com/dc91d56b6c.js"></script>
 <style type="text/css">
 	*{
-		font-family: 'Montserrat', sans-serif;
+		font-family: 'Open Sans', sans-serif;
 	}
 	.main-header{
 		text-align: center;
@@ -31,16 +34,21 @@
 		color: white;
 		margin-right: 15px;
 	}
-	.call-col p{
-		font-size: 1.2em;
-		padding: 5px 15px;
+	.body-col p{
+	    font-size: 1.3em;
+	    /* padding: 5px 15px; */
+	    text-align: justify;
+	    margin-top: 30px;
+	    color: #777;
+	}
+	.body-col a{
+		text-decoration: underline;
+		color: black;
+		font-weight: bold;
+		margin: 0px;
 	}
 	.call-col{
-		padding-top: 25px;
-	}
-	.call-col a{
-		color: #337ab7;
-		margin: 0px;
+		/*padding-top: 25px;*/
 	}
 	.call{
 		text-align: center;
@@ -49,9 +57,128 @@
 		display: inline-block;
 		margin-right: 30px;
 	}
+	.navbar-default{
+		background-color: white;
+		border-color: #ececec;
+		padding: 0px 15px;
+	}
+	.img-fluid{
+		height: auto;
+		width: 100%;
+	}
+	.landing-row .col-sm-12{
+		padding: 0px;
+	}
+	.img-overlay{
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    margin-top: 4%;
+	}
+	.img-overlay h1{
+	    font-size: 5vw;
+	    color: black;
+		font-family: 'Oswald', sans-serif;
+	}
+	.nav li a{
+		font-family: 'Raleway', sans-serif;
+	}
+	.navbar-brand{
+		font-family: 'Raleway', sans-serif;
+	}
+	.landing-row{
+		margin-top: 50px;
+	}
+	.body-headers{
+		font-family: 'Oswald', sans-serif;
+		margin: 20px 0px;
+	}
+	.body-row{
+		margin-top: 15px;
+	}
+	.copyright{
+		float: right;
+		margin-top: 5px;
+	}
+	.fa{
+		color: #777;
+		margin-right: 30px;
+		font-size: 2em;
+	}
+	.footer-container{
+		padding: 25px 30px 15px;
+		background-color: #ececec;
+	}
+	.coming-soon{
+		/*text-align: center;*/
+		margin: 30px 0px 60px;
+	}
+	a{
+	  -moz-transition: all 0.6s;
+      -webkit-transition: all 0.6s;
+      transition: all 0.6s;
+	}
+	.fa{
+	  -moz-transition: all 0.6s;
+      -webkit-transition: all 0.6s;
+      transition: all 0.6s;	
+	}
+	.footer-container .fa:hover{
+		color: black;
+	}
+	.nav li a:hover{
+		/*font-weight: bold;*/
+		color: black;
+	}
+	.body-col a:hover{
+		color: #ececec;
+		text-decoration: none;
+	}
+@media only screen and (max-width: 768px) {
+	.img-overlay{
+		margin-top: 0%;
+	}
+	.body-headers{
+		font-size: 3vh;
+	}
+
+}
+@media only screen and (max-width : 550px) {
+	.img-overlay{
+		position: initial;
+	    background-image: url(<%= image_path('landing.png') %>);
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    padding: 30px 0px;
+	}
+	.body-headers{
+		font-size: 4vh;
+		text-align: center;
+	}
+	.img-overlay h1{
+		font-size: 5vh;
+	}
+	.navbar-default{
+		padding: 0px;
+	}
+	.footer-container{
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.coming-soon{
+		text-align: center;
+	}
+	.img-div img{
+		display: none;
+	}
+}
+
 </style>
 
-<div class="row top-row">
+<!-- <div class="row top-row">
 	<div class="row navigation-row">
 		<a href="/remembrance" class="a-nav">Past Events</a>
 		<a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" class="a-nav" target="_blank">Call For Submissions Form</a>
@@ -65,13 +192,59 @@
 		<div class="col-sm-2">
 		</div>
 	</div>
-</div>
+</div> -->
+<div class="container-fluid">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">LA Road Concerts</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" class="a-nav" target="_blank">Call for Submissions Form</a></li>
+<!--               <li><a href="#">Artists</a></li>
+              <li><a href="#">Map</a></li> -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Past Events<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/remembrance">DTLA - Day of Remembrance</a></li>
+                  <li><a href="https://laroadconcerts.github.io/" id="pdf" target="_blank">Mulholland Dérive</a></li>
+                  <li><a href="https://laroadconcerts.github.io/washington.htm" id="pdf" target="_blank">Washington Blvd</a></li>
+                  <li><a href="https://laroadconcerts.github.io/sunset.htm" id="pdf" target="_blank">Sunset Blvd</a></li></li>
+                  <li><a href="https://laroadconcerts.github.io/sanfernando.htm" id="pdf" target="_blank">San Fernando</a></li>
+                </ul>
+              </li>
+            </ul>
+  <!--           <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
+              <li><a href="../navbar-static-top/">Static top</a></li>
+              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul> -->
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+     <div class="row landing-row">
+     	<div class="col-sm-12 img-div">
+	     	<%= image_tag('landing.png', :class => 'img-fluid') %>
+	     	<div class="img-overlay">
+		     	<h1>LARC PRESENTS</h1>
+		     	<h1>NATIONAL & WASHINGTON</h1>
+		     	<h1>11.11.2017</h1>
+		     </div>
+	     </div>
+     </div>
 	<div class="row body-row">
 		<div class="col-sm-2">
 		</div>
-		<div class="col-sm-8 call-col">
-			<p class="call">CALL FOR SUBMISSIONS</p>
-			<p>Los Angeles Road Concerts is seeking artists of all kinds to install or perform site-specific works in unused public space within walking distance of the intersection of National and Washington Blvds for the afternoon of November 11, 2017 (Veterans Day). Submissions may be sent through the <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" class="a-nav" target="_blank">online form</a> or to <a href="mailto:laroadconcerts@gmail.com">laroadconcerts@gmail.com</a>.</p>
+		<div class="col-sm-8 call-col body-col">
+			<h1 class="body-headers">CALL FOR SUBMISSIONS</h1>
+			<p>Los Angeles Road Concerts is seeking artists of all kinds to install or perform site-specific works in unused public space within walking distance of the intersection of National and Washington Blvds for the afternoon of November 11, 2017 (Veterans Day). Submissions may be sent through the <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" target="_blank">online form</a> or to <a href="mailto:laroadconcerts@gmail.com">laroadconcerts@gmail.com</a>.</p>
 			<p>In five previous events, LA Road Concerts has shown work from over 280 Los Angeles artists in unused public outdoor space. In a “road concert” participating artists display installations, perform works, facilitate carpool happenings, host spontaneous readings, and make music in unexpected spaces, such as on the sidewalk, between dumpsters, along streetlamps, as well as inside the audience’s earbuds as they traverse the path of the road concert. Works can be in one location, many locations, or no location in particular. Participating artists don't need to be physically present and may choose to make downloadable work. Through a wide-ranging open call process, LA Road Concerts brings together art school graduates, working artists, local residents and other artists, writers, musicians, performers, to realize a broad array of kinds of interactions with the sites.</p>
 			<p>Projects might respond to the idea of nations (versus our planet), the constitution, and making art in a time of war. Additionally, projects might respond to the site of Culver City and consider the role of art in capitalism. This particular road concert is part of the Untested Address event series, hosted by UMM (the Unconfirmed Makeshift Museum) at Klowden Mann, a Culver City gallery. How could "we the people" and/or the greater art world benefit from bringing everyone together, even those who would never find themselves in Culver City? How do we make value outside the institution, or infiltrate institutions to amplify our voice? What does it mean to make and show art (right) outside commercial mainstream private galleries?</p>
 			<p>The preferred deadline for submissions is October 24th, though submissions will be accepted until the week before the event.</p>
@@ -79,10 +252,20 @@
 			<p>Please contact us with any proposals, questions, or suggestions at <a href="mailto:laroadconcerts@gmail.com">laroadconcerts@gmail.com</a>. Or feel free to call or text me (Stephen van Dyck) at 505-331-9588 to discuss your potential submission. And please forward this along to anyone who you think would be interested in getting involved.</p>
 			<p>Thank you,</p>
 			<p>LA Road Concerts / Stephen van Dyck</p>
-			<p class="social"><a href="https://twitter.com/laroadconcerts" target="_blank">Twitter</a></p>
-			<p class="social"><a href="https://www.facebook.com/laroadconcerts/" target="_blank">Facebook</a></p>
-			<p class="social"><a href="https://www.instagram.com/laroadconcerts/" target="_blank">Instagram</a></p>
 		</div>
 		<div class="col-sm-2">
 		</div>
 	</div>
+	<div class="row body-row">
+		<div class='col-sm-2'>
+		</div>
+		<div class="col-sm-8 body-col">
+			<h1 class="body-headers coming-soon">MORE INFO COMING SOON</h1>
+		</div>
+	</div>
+</div>
+    <footer class="footer">
+      <div class="container-fluid footer-container">
+        <p class="text-muted"><a href="https://www.facebook.com/laroadconcerts/" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a><a href="https://www.instagram.com/laroadconcerts/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a><a href="https://twitter.com/laroadconcerts" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a><span class="copyright">&copy; 2017 LA Road Concerts</span></p>
+      </div>
+    </footer>
