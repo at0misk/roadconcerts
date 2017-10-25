@@ -1,0 +1,14 @@
+<form method="post" action="/artists">
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+	<div>Name: <input type="text" name="artist[name]"></div>
+	<div>Title: <input type="text" name="artist[title]"></div>
+	<div>Copy: <textarea name="artist[copy]"></textarea></div>
+	<div>when: <input type="text" name="artist[when]"></div>
+	<div>lat: <input type="text" name="artist[lat]"></div>
+	<div>long: <input type="text" name="artist[long]"></div>
+	<div>facebook: <input type="text" name="artist[facebook]"></div>
+	<div>twitter: <input type="text" name="artist[twitter]"></div>
+	<div>insta: <input type="text" name="artist[insta]"></div>
+	<div>website: <input type="text" name="artist[website]"></div>
+	<input type="submit" value="GO">
+</form>

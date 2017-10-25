@@ -302,11 +302,6 @@ fieldset[disabled] .btn-grey.active {
 	margin-bottom: 30px;
 }
 
-.soon{
-	margin-top: 45px;
-	margin-bottom: 65px;
-}
-
 </style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
@@ -343,7 +338,7 @@ fieldset[disabled] .btn-grey.active {
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Past Events<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/remembrance">DTLA - Day of Remembrance</a></li>
+                  <li><a href="/remembrance" target="_blank">DTLA - Day of Remembrance</a></li>
                   <li><a href="https://laroadconcerts.github.io/" id="pdf" target="_blank">Mulholland Dérive</a></li>
                   <li><a href="https://laroadconcerts.github.io/washington.htm" id="pdf" target="_blank">Washington Blvd</a></li>
                   <li><a href="https://laroadconcerts.github.io/sunset.htm" id="pdf" target="_blank">Sunset Blvd</a></li></li>
@@ -403,7 +398,7 @@ fieldset[disabled] .btn-grey.active {
 	</div>
 	<div class="row body-row participating-row">
 		<div class="col-sm-12">
-			<h1 class="body-headers soon">ARTIST INFO COMING SOON</h1>
+			<h1 class="body-headers">ARTIST INFO COMING SOON</h1>
 			<hr/>
 		</div>
 	</div>
@@ -458,7 +453,7 @@ fieldset[disabled] .btn-grey.active {
       function initMap() {
     // Create a map object and specify the DOM element for display.
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 34.028689, lng: -118.385719},
+      center: {lat: parseFloat('34.028689'), lng: parseFloat('-118.385719')},
       zoom: 16
     });
 }
