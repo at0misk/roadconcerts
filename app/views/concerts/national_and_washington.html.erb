@@ -95,6 +95,7 @@
 	.body-headers{
 		font-family: 'Oswald', sans-serif;
 		margin: 20px 0px;
+		text-align: center;
 	}
 	.body-row{
 		margin-top: 15px;
@@ -176,8 +177,23 @@
 	}
 }
 
-</style>
+#map{
+	min-height: 500px;
+	margin: 60px 0px;
+}
 
+#legend{
+	background-color: white;
+	margin-left: 15px;
+    padding: 5px 25px;
+    max-height: 400px;
+    overflow: scroll;
+}
+#legend li:hover{
+	cursor: pointer;
+}
+
+</style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
 		<a href="/remembrance" class="a-nav">Past Events</a>
@@ -207,7 +223,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" class="a-nav" target="_blank">Call for Submissions Form</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc3NdbPfSsDrLDmWh9rcaHC69pKy9dF2wltXzOXYnOl2QGqAg/viewform" class="a-nav" target="_blank">Submission Form</a></li>
 <!--               <li><a href="#">Artists</a></li>
               <li><a href="#">Map</a></li> -->
               <li class="dropdown">
@@ -233,8 +249,8 @@
      	<div class="col-sm-12 img-div">
 	     	<%= image_tag('landing.png', :class => 'img-fluid') %>
 	     	<div class="img-overlay">
-		     	<h1>LARC PRESENTS</h1>
 		     	<h1>NATIONAL & WASHINGTON</h1>
+		     	<h1>ROAD CONCERT</h1>
 		     	<h1>11.11.2017</h1>
 		     </div>
 	     </div>
@@ -252,15 +268,23 @@
 			<p>Please contact us with any proposals, questions, or suggestions at <a href="mailto:laroadconcerts@gmail.com">laroadconcerts@gmail.com</a>. Or feel free to call or text me (Stephen van Dyck) at 505-331-9588 to discuss your potential submission. And please forward this along to anyone who you think would be interested in getting involved.</p>
 			<p>Thank you,</p>
 			<p>LA Road Concerts / Stephen van Dyck</p>
+			<hr/>
 		</div>
 		<div class="col-sm-2">
 		</div>
 	</div>
-	<div class="row body-row">
+<!-- 	<div class="row body-row">
 		<div class='col-sm-2'>
 		</div>
 		<div class="col-sm-8 body-col">
 			<h1 class="body-headers coming-soon">MORE INFO COMING SOON</h1>
+		</div>
+	</div> -->
+	<div class="row body-row map-row">
+		<div class="col-sm-12">
+			<h1 class="body-headers">INTERACTIVE MAP</h1>
+			<div id="map">
+			</div>
 		</div>
 	</div>
 </div>
@@ -269,3 +293,13 @@
         <p class="text-muted"><a href="https://www.facebook.com/laroadconcerts/" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a><a href="https://www.instagram.com/laroadconcerts/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a><a href="https://twitter.com/laroadconcerts" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a><span class="copyright">&copy; 2017 LA Road Concerts</span></p>
       </div>
     </footer>
+<script type="text/javascript">
+      function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 34.028689, lng: -118.385719},
+      zoom: 16
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-n3Bj4NngwQhrVi_vTrFVwNSEMHP8UAw&callback=initMap" async defer></script>
