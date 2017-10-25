@@ -94,7 +94,7 @@
 	}
 	.body-headers{
 		font-family: 'Oswald', sans-serif;
-		margin: 20px 0px;
+		margin: 20px 0px 45px;
 		text-align: center;
 	}
 	.body-row{
@@ -121,6 +121,9 @@
 	  -moz-transition: all 0.6s;
       -webkit-transition: all 0.6s;
       transition: all 0.6s;
+	}
+	a:focus{
+		text-decoration: none;
 	}
 	.fa{
 	  -moz-transition: all 0.6s;
@@ -179,7 +182,7 @@
 
 #map{
 	min-height: 500px;
-	margin: 60px 0px;
+	margin: 60px 0px 15px;
 }
 
 #legend{
@@ -191,6 +194,114 @@
 }
 #legend li:hover{
 	cursor: pointer;
+}
+
+.panel-title{
+	color: #333;
+	font-family: 'Oswald', sans-serif;
+	font-size: 3vh;	
+}
+
+.panel a:hover{
+	color: #ececec;
+	text-decoration: none;
+}
+
+.panel:hover{
+	background-color: #ececec;
+}
+
+.panel{
+	  -moz-transition: all 0.6s;
+      -webkit-transition: all 0.6s;
+      transition: all 0.6s;	
+}
+
+.participating-row{
+	/*margin-bottom: 60px;*/
+}
+
+.btn-grey { 
+	font-family: 'Oswald', sans-serif;
+	margin: 0px auto;
+    color: #777777; 
+    background-color: #ECECEC; 
+    border-color: #777777;
+    display: block;
+    font-size: 2vh;
+    width: 100%; 
+} 
+ 
+.btn-grey:hover, 
+.btn-grey:focus, 
+.btn-grey:active, 
+.btn-grey.active, 
+.open .dropdown-toggle.btn-grey { 
+  color: #777777; 
+  background-color: #333333; 
+  border-color: #777777; 
+} 
+ 
+.btn-grey:active, 
+.btn-grey.active, 
+.open .dropdown-toggle.btn-grey { 
+  background-image: none; 
+} 
+ 
+.btn-grey.disabled, 
+.btn-grey[disabled], 
+fieldset[disabled] .btn-grey, 
+.btn-grey.disabled:hover, 
+.btn-grey[disabled]:hover, 
+fieldset[disabled] .btn-grey:hover, 
+.btn-grey.disabled:focus, 
+.btn-grey[disabled]:focus, 
+fieldset[disabled] .btn-grey:focus, 
+.btn-grey.disabled:active, 
+.btn-grey[disabled]:active, 
+fieldset[disabled] .btn-grey:active, 
+.btn-grey.disabled.active, 
+.btn-grey[disabled].active, 
+fieldset[disabled] .btn-grey.active { 
+  background-color: #ECECEC; 
+  border-color: #777777; 
+} 
+ 
+.btn-grey .badge { 
+  color: #ECECEC; 
+  background-color: #777777; 
+}
+
+.mailing-row{
+	margin: 120px 0px;
+}
+
+.social{
+	max-height: 460px;
+	/*overflow: scroll;*/
+	margin: 0px;
+	margin-bottom: 15px;
+}
+
+.body-headers a i:hover{
+	color: black;
+}
+
+.noScroll{
+	overflow: none;
+}
+
+.doScroll{
+	overflow: scroll;
+}
+
+.big-fa{
+	margin-bottom: 30px;
+}
+
+.soon{
+	margin-top: 45px;
+	margin-bottom: 65px;
 }
 
 </style>
@@ -287,6 +398,53 @@
 			</div>
 		</div>
 	</div>
+	<div class="row body-row participating-row">
+		<div class="col-sm-12">
+			<h1 class="body-headers soon">ARTIST INFO COMING SOON</h1>
+			<hr/>
+		</div>
+	</div>
+	<div class="row body-row mailing-row">
+		<div class="col-sm-4">
+		</div>
+		<div class="col-sm-4">
+			<h1 class="body-headers">MAILING LIST</h1>
+            <form action='/mail' method='post' data-remote="false" id='mailerform'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+              <div class="form-group">
+			    <input type="text" name="first" class="form-control" id="first_name" placeholder="First Name">
+			  </div>
+              <div class="form-group">
+			    <input type="text" name="last" class="form-control" id="last_name" placeholder="Last Name">
+			  </div>
+			  <div class="form-group">
+			    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+			  </div>
+              <button class="btn btn-grey" type="submit" name="action">JOIN</button>
+            </form>
+		</div>
+		<div class="col-sm-4">
+		</div>
+	</div>
+	<div class="row body-row social-row">
+		<div class="col-sm-12">
+					<hr/>
+		</div>
+		<div class="col-sm-6 twittcont section scrollspy noscroll">
+			<h1 class="body-headers big-fa"><a href="https://twitter.com/laroadconcerts" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></h1>
+				<div class="col-sm-12 social noScroll">
+				  <a class="twitter-timeline" href="https://twitter.com/LARoadConcerts" target="_blank">Tweets by LARoadConcerts</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+		</div>
+		<div class="col-sm-6">
+			<h1 class="body-headers big-fa"><a href="https://www.instagram.com/laroadconcerts/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></i></h1>
+				<div class="col-sm-12 social noScroll">
+					<h5><a href="https://www.instagram.com/laroadconcerts/" target="_blank">@LARoadConcerts</a> on Instagram</h5>
+					<!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/a33c1e9a12cf5f1f896f021e85ea49b9.html" id="lightwidget_a33c1e9a12" name="lightwidget_a33c1e9a12"  scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+				</div>
+		</div>
+	</div>
+	</div>
 </div>
     <footer class="footer">
       <div class="container-fluid footer-container">
@@ -301,5 +459,12 @@
       zoom: 16
     });
 }
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        $('.social').removeClass('noscroll');
+        $('.social').addClass('doScroll');
+    }
+};
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-n3Bj4NngwQhrVi_vTrFVwNSEMHP8UAw&callback=initMap" async defer></script>
