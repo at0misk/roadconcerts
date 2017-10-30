@@ -419,9 +419,9 @@ fieldset[disabled] .btn-grey.active {
 			<h1 class="body-headers">INTERACTIVE MAP</h1>
 			<div id="map">
 			</div>
-			<ul id="legend">
+<!-- 			<ul id="legend">
 		        <li id="khost">Alex Khost & Amy Bauer</li>
-			  </ul>
+			  </ul> -->
 		</div>
 	</div>
 	<div class="row body-row participating-row" id="participating">
@@ -486,34 +486,34 @@ fieldset[disabled] .btn-grey.active {
     });
     var infowindow = new google.maps.InfoWindow();
     // positions
-    var khost = {lat: 34.051836, lng: -118.245442};
-        // NEW STUFF
-    var contentStringKhost = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h6>Alex Khost & Amy Bauer</h6>'+
-        '<div class="mapBodyContent">'+
-        "<p>In Memoriam: A Funeral Procession for the Death of Love</p>" +
-        "<p>Spring / 1st to 4th - 11:30 PM</p>" +
-        '</div>'+
-        '</div>';
-    var markerKhost = new google.maps.Marker({
-      position: khost,
-      map: map,
-      title: 'In Memoriam: A Funeral Procession for the Death of Love',
-      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
-    });
-    $('#khost').click(function(){
-    infowindow.close();
-    infowindow.setContent(contentStringKhost);
-    infowindow.open(map, markerKhost);
-    });
-    markerKhost.addListener('click', function(){
-	    infowindow.close();
-	    infowindow.setContent(contentStringKhost);
-	    infowindow.open(map, markerKhost);
-    });
-    map.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend'));
+    // var khost = {lat: 34.051836, lng: -118.245442};
+    //     // NEW STUFF
+    // var contentStringKhost = '<div id="content">'+
+    //     '<div id="siteNotice">'+
+    //     '</div>'+
+    //     '<h6>Alex Khost & Amy Bauer</h6>'+
+    //     '<div class="mapBodyContent">'+
+    //     "<p>In Memoriam: A Funeral Procession for the Death of Love</p>" +
+    //     "<p>Spring / 1st to 4th - 11:30 PM</p>" +
+    //     '</div>'+
+    //     '</div>';
+    // var markerKhost = new google.maps.Marker({
+    //   position: khost,
+    //   map: map,
+    //   title: 'In Memoriam: A Funeral Procession for the Death of Love',
+    //   icon: "<%= escape_javascript asset_path('location_icon.png') %>"
+    // });
+    // $('#khost').click(function(){
+    // infowindow.close();
+    // infowindow.setContent(contentStringKhost);
+    // infowindow.open(map, markerKhost);
+    // });
+    // markerKhost.addListener('click', function(){
+	   //  infowindow.close();
+	   //  infowindow.setContent(contentStringKhost);
+	   //  infowindow.open(map, markerKhost);
+    // });
+    // map.controls[google.maps.ControlPosition.LEFT_TOP].push(document.getElementById('legend'));
 }
 
 $('ul.nav').find('a').click(function(){
