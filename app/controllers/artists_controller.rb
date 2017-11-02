@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 		if @artist.save
 			render :json => @artist
 		else
-			render :json {"UH OH"}
+			render plain: "uh oh"
 		end
 	end
 	def artist_params
