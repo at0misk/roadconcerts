@@ -452,6 +452,8 @@ fieldset[disabled] .btn-grey.active {
 						</a>
 					    <div id="collapse<%= count %>" class="scroll<%= val.name_id %> panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
 					      <div class="panel-body">
+					      	<h5>Where: <%= val.where %></h5>
+					      	<h5>When: <%= val.when %></h5>
 					        <%= simple_format(val.copy) %>
 					      </div>
 					    </div>
