@@ -6,14 +6,13 @@ class ConcertsController < ApplicationController
   end
   def mail
   	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
-  	respond_to do |format|
-  	format.html { render json: params['email'], status: :created}
-  	format.json { render json: params['email'], status: :created}
-  	format.js { render json: params['email'], status: :created}
-  	end
+  	redirect_to "/"
+    flash[:thanks] = true
   end
   def remembrance
   end
   def national_and_washington
+    @artists = Artist.where.not(downloadable: true)
+    @download_artists = Artist.where(downloadable: true)
   end
 end
