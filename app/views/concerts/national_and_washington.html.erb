@@ -315,6 +315,10 @@ fieldset[disabled] .btn-grey.active {
 	color: black;
 }
 
+.maptitle{
+	text-align: center;
+}
+
 </style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
@@ -559,9 +563,9 @@ fieldset[disabled] .btn-grey.active {
 		    var contentString<%= val.id %> = '<div class="content">'+
 		        '<div id="siteNotice">'+
 		        '</div>'+
-		        '<h6><%= val.name %></h6>'+
+		        "<h5 class='maptitle'><a class='bodyScroll' href='#scroll<%= val.name_id %>'><%= val.title %></a></h5 class='maptitle'>" +
 		        '<div class="mapBodyContent">'+
-		        "<p><a class='bodyScroll' href='#scroll<%= val.name_id %>'><%= val.title %></a></p>" +
+		        '<h6><%= val.name %></h6>'+
 		        "<p><%= val.where %></p>" + 
 		        "<p><%= val.when %></p>" +
 		        '</div>'+
