@@ -424,7 +424,7 @@ fieldset[disabled] .btn-grey.active {
 			</div>
 			<ul id="legend">
 				<% @artists.each do |val| %>
-					<% if val.lat && val.lang %>
+					<% if val.lat && val.long %>
 				        <li id="<%= val.name_id %>"><%= val.name %></li>
 			        <% end %>
 		        <% end %>
