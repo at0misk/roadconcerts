@@ -1,0 +1,27 @@
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="container">
+	<div class="col-sm-6">
+		<form method="post" action="/artists">
+		    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+			<div class="col-sm-12">Name: <input type="text" name="artist[name]" value="<%= @artist.name %>"></div>
+			<div class="col-sm-12">Title: <input type="text" name="artist[title]" value="<%= @artist.title %>"></div>
+			<div class="col-sm-12">Copy: <textarea name="artist[copy]"><%= @artist.copy %></textarea></div>
+			<div class="col-sm-12">where: <input type="text" name="artist[where]" value="<%= @artist.where %>"></div>
+			<div class="col-sm-12">name_id: <input type="text" name="artist[name_id]" value="<%= @artist.name_id %>"></div>
+			<div class="col-sm-12">when: <input type="text" name="artist[when]" value="<%= @artist.when %>"></div>
+			<div class="col-sm-12">lat: <input type="text" name="artist[lat]" value="<%= @artist.lat %>"></div>
+			<div class="col-sm-12">long: <input type="text" name="artist[long]" value="<%= @artist.long %>"></div>
+			<div class="col-sm-12">facebook: <input type="text" name="artist[facebook]" value="<%= @artist.facebook %>"></div>
+			<div class="col-sm-12">twitter: <input type="text" name="artist[twitter]" value="<%= @artist.twitter %>"></div>
+			<div class="col-sm-12">insta: <input type="text" name="artist[insta]" value="<%= @artist.insta %>"></div>
+			<div class="col-sm-12">website: <input type="text" name="artist[website]" value="<%= @artist.website %>"></div>
+			<% if @artist.downloadable %>
+				<div class="col-sm-12">downloadable: <input type="checkbox" name="artist[downloadable]" checked></div>
+			<% else %>
+				<div class="col-sm-12">downloadable: <input type="checkbox" name="artist[downloadable]"></div>
+			<% end %>
+			<input type="submit" value="GO">
+		</form>
+	</div>
+</div>

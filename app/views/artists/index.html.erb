@@ -1,0 +1,6 @@
+<h2><a href="/artists/new">Add Artist</a></h2>
+<hr/>
+<h3>Artists:</h3>
+<% @artists.each do |val| %>
+<h4><a href="/artists/<%= val.id %>/edit"><%= val.name %></a></h4>
+<% end %>

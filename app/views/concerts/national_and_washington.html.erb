@@ -610,37 +610,39 @@ fieldset[disabled] .btn-grey.active {
     var infowindow = new google.maps.InfoWindow();
     // positions
     <% @artists.each do |val| %>
-    	var pos<%= val.id %> = {lat: <%= val.lat %>, lng: <%= val.long %>};
-	    var contentString<%= val.id %> = '<div class="content">'+
-	        '<div id="siteNotice">'+
-	        '</div>'+
-	        '<h6><%= val.name %></h6>'+
-	        '<div class="mapBodyContent">'+
-	        "<p><a class='bodyScroll' href='#scroll<%= val.name_id %>'><%= val.title %></a></p>" +
-	        "<p><%= val.where %> - <%= val.when %></p>" +
-	        '</div>'+
-	        '</div>';
-	    var marker<%= val.id %> = new google.maps.Marker({
-	      position: pos<%= val.id %>,
-	      map: map,
-	      title: '<%= val.title %>',
-	      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
-	    });
-	    marker<%= val.id %>.addListener('click', function(){
+    	<% if val.lat && val.long %>
+	    	var pos<%= val.id %> = {lat: <%= val.lat %>, lng: <%= val.long %>};
+		    var contentString<%= val.id %> = '<div class="content">'+
+		        '<div id="siteNotice">'+
+		        '</div>'+
+		        '<h6><%= val.name %></h6>'+
+		        '<div class="mapBodyContent">'+
+		        "<p><a class='bodyScroll' href='#scroll<%= val.name_id %>'><%= val.title %></a></p>" +
+		        "<p><%= val.where %> - <%= val.when %></p>" +
+		        '</div>'+
+		        '</div>';
+		    var marker<%= val.id %> = new google.maps.Marker({
+		      position: pos<%= val.id %>,
+		      map: map,
+		      title: '<%= val.title %>',
+		      icon: "<%= escape_javascript asset_path('location_icon.png') %>"
+		    });
+		    marker<%= val.id %>.addListener('click', function(){
+			    infowindow.close();
+			    infowindow.setContent(contentString<%= val.id %>);
+			    infowindow.open(map, marker<%= val.id %>);
+		    });
+		    $('#<%= val.name_id %>').click(function(){
 		    infowindow.close();
 		    infowindow.setContent(contentString<%= val.id %>);
 		    infowindow.open(map, marker<%= val.id %>);
-	    });
-	    $('#<%= val.name_id %>').click(function(){
-	    infowindow.close();
-	    infowindow.setContent(contentString<%= val.id %>);
-	    infowindow.open(map, marker<%= val.id %>);
-	    });
-	    marker<%= val.id %>.addListener('click', function(){
-		    infowindow.close();
-		    infowindow.setContent(contentString<%= val.id %>);
-		    infowindow.open(map, marker<%= val.id %>);
-	    });
+		    });
+		    marker<%= val.id %>.addListener('click', function(){
+			    infowindow.close();
+			    infowindow.setContent(contentString<%= val.id %>);
+			    infowindow.open(map, marker<%= val.id %>);
+		    });
+		<% end %>
 	<% end %>
     // var khost = {lat: 34.051836, lng: -118.245442};
     //     // NEW STUFF

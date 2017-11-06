@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
 	def create
 		@artist = Artist.new(artist_params)
 		if @artist.save
-			render :json => @artist
+			redirect_to '/artists'
 		else
 			render plain: "uh oh"
 		end
@@ -11,5 +11,11 @@ class ArtistsController < ApplicationController
 		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable)
 	end
 	def new
+	end
+	def index
+		@artists = Artist.all
+	end
+	def edit
+		@artist = Artist.find(params['id'])
 	end
 end
