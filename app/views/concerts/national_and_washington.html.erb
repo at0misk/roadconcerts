@@ -460,36 +460,38 @@ fieldset[disabled] .btn-grey.active {
 		<div class="col-sm-2">
 		</div>
 	</div>
-	<div class="row body-row participating-row">
-		<div class="col-sm-2">
-		</div>
-		<div class="col-sm-8">
-			<h1 class="body-headers" id="downloadable">DOWNLOADABLE ART</h1>
-			<div class="panel-group" id="accordion-download" role="tablist" aria-multiselectable="true">
-			<% count = 0 %>
-			<% if @download_artists %>
-				<% @download_artists.each do |val| %>
-					  <div class="panel panel-default">
-					    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDownloadable<%= count %>" aria-expanded="false" aria-controls="collapseOne">
-						    <div class="panel-heading" role="tab" id="headingOne">
-						      <h4 class="panel-title"><%= val.name %> - <%= val.title %></h4>
-						    </div>
-						</a>
-					    <div id="collapseDownloadable<%= count %>" class="panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
-					      <div class="panel-body">
-					        <%= simple_format(val.copy) %>
-					      </div>
-					    </div>
-					  </div>
-					<% count += 1 %>
-				  <% end %>
-			  <% end %>
+	<% if @download_artists.length > 0 %>
+		<div class="row body-row participating-row">
+			<div class="col-sm-2">
 			</div>
-			<hr/ id="mailinglist">
+			<div class="col-sm-8">
+				<h1 class="body-headers" id="downloadable">DOWNLOADABLE ART</h1>
+				<div class="panel-group" id="accordion-download" role="tablist" aria-multiselectable="true">
+				<% count = 0 %>
+				<% if @download_artists %>
+					<% @download_artists.each do |val| %>
+						  <div class="panel panel-default">
+						    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDownloadable<%= count %>" aria-expanded="false" aria-controls="collapseOne">
+							    <div class="panel-heading" role="tab" id="headingOne">
+							      <h4 class="panel-title"><%= val.name %> - <%= val.title %></h4>
+							    </div>
+							</a>
+						    <div id="collapseDownloadable<%= count %>" class="panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
+						      <div class="panel-body">
+						        <%= simple_format(val.copy) %>
+						      </div>
+						    </div>
+						  </div>
+						<% count += 1 %>
+					  <% end %>
+				  <% end %>
+				</div>
+				<hr/ id="mailinglist">
+			</div>
+			<div class="col-sm-2">
+			</div>
 		</div>
-		<div class="col-sm-2">
-		</div>
-	</div>
+	<% end %>
 	<div class="row body-row mailing-row">
 		<div class="col-sm-4">
 		</div>
