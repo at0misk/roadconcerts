@@ -12,7 +12,7 @@ class ConcertsController < ApplicationController
   def remembrance
   end
   def national_and_washington
-    @artists = Artist.where.not(downloadable: true)
+    @artists = Artist.where(downloadable: nil)
     @download_artists = Artist.where(downloadable: true)
   end
 end
