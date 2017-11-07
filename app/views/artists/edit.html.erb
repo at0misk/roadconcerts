@@ -2,7 +2,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="container">
 	<div class="col-sm-6">
-		<form action="/artists/<%= @artist.id %>">
+		<form method="POST" action="/artists/<%= @artist.id %>">
 		    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
 			<input name="_method" type="hidden" value="PATCH">
 			<div class="col-sm-12">Name: <input type="text" name="artist[name]" value="<%= @artist.name %>"></div>
