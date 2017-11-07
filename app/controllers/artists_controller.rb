@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
 		end
 	end
 	def artist_params
-		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable)
+		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable, :bio)
 	end
 	def new
 	end
