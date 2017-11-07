@@ -7,8 +7,8 @@
 			<input name="_method" type="hidden" value="PATCH">
 			<div class="col-sm-12">Name: <input type="text" name="artist[name]" value="<%= @artist.name %>"></div>
 			<div class="col-sm-12">Title: <input type="text" name="artist[title]" value="<%= @artist.title %>"></div>
-			<div class="col-sm-12">Copy (short): <textarea name="artist[copy]"><%= @artist.copy %></textarea></div>
-			<div class="col-sm-12">Bio / Description: <textarea name="artist[bio]"><%= @artist.bio %></textarea></div>
+			<div class="col-sm-12">Copy (short): <textarea name="artist[copy]" rows="10" cols="10"><%= @artist.copy %></textarea></div>
+			<div class="col-sm-12">Bio / Description: <textarea name="artist[bio]" rows="10" cols="10"><%= @artist.bio %></textarea></div>
 			<div class="col-sm-12">where: <input type="text" name="artist[where]" value="<%= @artist.where %>"></div>
 			<div class="col-sm-12">name_id: <input type="text" name="artist[name_id]" value="<%= @artist.name_id %>"></div>
 			<div class="col-sm-12">when: <input type="text" name="artist[when]" value="<%= @artist.when %>"></div>
@@ -27,4 +27,3 @@
 		</form>
 	</div>
 </div>
-wat
