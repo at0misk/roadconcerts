@@ -7,6 +7,11 @@ class ArtistsController < ApplicationController
 			render plain: "uh oh"
 		end
 	end
+	def update
+		@artist = Artist.find(params['id'])
+		@artist.update(artist_params)
+		redirect_to "/artists/#{params['id']}"
+	end
 	def artist_params
 		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable, :bio)
 	end
