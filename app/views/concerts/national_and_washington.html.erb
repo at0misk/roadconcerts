@@ -523,7 +523,7 @@ fieldset[disabled] .btn-grey.active {
 							     		<p>Password: ColdPlanet</p>
 							     	</span>
 							     <% end %>
-						        <%= simple_format(val.bio) %>
+						        <%= auto_link(simple_format(val.bio), :html => { :target => "blank" }) %>
 						      </div>
 						    </div>
 						  </div>
