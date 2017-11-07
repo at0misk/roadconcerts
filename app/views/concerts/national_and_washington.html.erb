@@ -337,6 +337,10 @@ fieldset[disabled] .btn-grey.active {
 	font-size: 1.3em;
 }
 
+.title-ital{
+	font-style: italic;
+}
+
 </style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
@@ -465,7 +469,7 @@ fieldset[disabled] .btn-grey.active {
 					  <div class="panel panel-default" id="scroll<%= val.name_id %>">
 					    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= count %>" aria-expanded="false" aria-controls="collapseOne">
 						    <div class="panel-heading" role="tab" id="headingOne">
-						      <h4 class="panel-title"><%= val.name %> - <%= val.title %></h4>
+						      <h4 class="panel-title"><%= val.name %> - <span class="title-ital"><%= val.title %></span></h4>
 						    </div>
 						</a>
 					    <div id="collapse<%= count %>" class="scroll<%= val.name_id %> panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
