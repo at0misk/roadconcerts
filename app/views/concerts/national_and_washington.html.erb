@@ -604,7 +604,11 @@ fieldset[disabled] .btn-grey.active {
 		    var contentString<%= val.id %> = '<div class="content">'+
 		        '<div id="siteNotice">'+
 		        '</div>'+
+		        <% if val.multi_location == true %>
+		        "<h5 class='maptitle'><a class='bodyScroll' href='#scroll<%= val.name_id.chop %>'><%= val.title %></a></h5 class='maptitle'>" +
+		        <% else %>
 		        "<h5 class='maptitle'><a class='bodyScroll' href='#scroll<%= val.name_id %>'><%= val.title %></a></h5 class='maptitle'>" +
+		        <% end %>
 		        '<div class="mapBodyContent">'+
 		        '<h6><%= val.name %></h6>'+
 		        "<p><%= val.where %></p>" + 
