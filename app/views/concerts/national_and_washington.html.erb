@@ -468,7 +468,7 @@ fieldset[disabled] .btn-grey.active {
 			<% count = 0 %>
 			<% if @artists %>
 				<% @artists.each do |val| %>
-					<% if val.name_id == 'reception' || val.multi_location != true %>
+					<% if val.name_id == 'reception' || val.multi_location == true %>
 					<% else %>
 					  <div class="panel panel-default" id="scroll<%= val.name_id %>">
 					    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= count %>" aria-expanded="false" aria-controls="collapseOne">
