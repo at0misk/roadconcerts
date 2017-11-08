@@ -23,6 +23,11 @@
 			<% else %>
 				<div class="col-sm-12">downloadable: <input type="checkbox" name="artist[downloadable]"></div>
 			<% end %>
+			<% if @artist.multi_location %>
+				<div class="col-sm-12">multi location: <input type="checkbox" name="artist[multi_location]" checked></div>
+			<% else %>
+				<div class="col-sm-12">multi location: <input type="checkbox" name="artist[multi_location]"></div>
+			<% end %>
 			<input type="submit" value="GO">
 		</form>
 	</div>

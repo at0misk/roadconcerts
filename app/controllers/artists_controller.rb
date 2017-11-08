@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
 		redirect_to "/artists/#{params['id']}/edit"
 	end
 	def artist_params
-		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable, :bio)
+		params.require(:artist).permit(:name, :title, :copy, :lat, :long, :when, :facebook, :twitter, :insta, :website, :where, :name_id, :downloadable, :bio, :multi_location)
 	end
 	def new
 	end

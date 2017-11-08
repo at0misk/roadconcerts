@@ -2,5 +2,9 @@
 <hr/>
 <h3>Artists:</h3>
 <% @artists.each do |val| %>
-<h4><a href="/artists/<%= val.id %>/edit"><%= val.name %></a></h4>
+	<% if val.multi_location %>
+		<h4><a href="/artists/<%= val.id %>/edit"><%= val.name %></a></h4>
+	<% else %>
+		<h4>Multi Location: <a href="/artists/<%= val.id %>/edit"><%= val.name %></a></h4>
+	<% end %>
 <% end %>
