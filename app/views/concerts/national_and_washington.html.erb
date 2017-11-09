@@ -346,6 +346,8 @@ fieldset[disabled] .btn-grey.active {
 .panel-body img{
 	/*display: block;*/
 	margin: 30px auto;
+	max-width: 100%;
+	height: auto;
 }
 
 </style>
@@ -485,7 +487,7 @@ fieldset[disabled] .btn-grey.active {
 					      <div class="panel-body">
 					      	<h5 class="wherewhen"><%= val.where %> - <%= val.when %></h5>
 					      	<% if val.avatar.file? %>
-						      	<%= image_tag val.avatar.url(:large) %>
+						      	<%= image_tag val.avatar.url(:large), :class => "img-fluid" %>
 					      	<% end %>
 					        <%= simple_format(val.copy) %>
 					        <%= simple_format(val.bio) %>
