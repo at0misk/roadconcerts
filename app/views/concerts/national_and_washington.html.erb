@@ -343,6 +343,11 @@ fieldset[disabled] .btn-grey.active {
 	color: #777;
 }
 
+.panel-body img{
+	/*display: block;*/
+	margin: 30px auto;
+}
+
 </style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
@@ -479,6 +484,7 @@ fieldset[disabled] .btn-grey.active {
 					    <div id="collapse<%= count %>" class="scroll<%= val.name_id %> panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
 					      <div class="panel-body">
 					      	<h5 class="wherewhen"><%= val.where %> - <%= val.when %></h5>
+					      	<%= image_tag val.avatar.url(:large) %>
 					        <%= simple_format(val.copy) %>
 					        <%= simple_format(val.bio) %>
 					      </div>

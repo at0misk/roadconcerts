@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'artists/new' => 'artists#new'
   post 'artists' => 'artists#create'
   patch 'artists/:id' => 'artists#update'
+  get 'remove_image/:id' => 'artists#remove_image'
+  get 'artists_destroy/:id' => 'artists#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,7 +2,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="container">
 	<div class="col-sm-6">
-		<form method="post" action="/artists">
+		<form method="post" action="/artists" enctype="multipart/form-data">
 		    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
 			<div class="col-sm-12">Name: <input type="text" name="artist[name]"></div>
 			<div class="col-sm-12">Title: <input type="text" name="artist[title]"></div>
@@ -19,6 +19,7 @@
 			<div class="col-sm-12">website: <input type="text" name="artist[website]"></div>
 			<div class="col-sm-12">downloadable: <input type="checkbox" name="artist[downloadable]"></div>
 			<div class="col-sm-12">multi location: <input type="checkbox" name="artist[multi_location]"></div>
+			<div class="col-sm-12">image: <input type="file" name="artist[avatar]"></div>
 			<input type="submit" value="GO">
 		</form>
 	</div>

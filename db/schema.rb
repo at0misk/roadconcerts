@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108161550) do
+ActiveRecord::Schema.define(version: 20171109173150) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -23,13 +23,17 @@ ActiveRecord::Schema.define(version: 20171108161550) do
     t.string   "insta"
     t.string   "website"
     t.string   "when"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "downloadable"
     t.string   "name_id"
     t.string   "where"
     t.string   "bio"
     t.boolean  "multi_location"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "concerts", force: :cascade do |t|
