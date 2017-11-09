@@ -484,7 +484,9 @@ fieldset[disabled] .btn-grey.active {
 					    <div id="collapse<%= count %>" class="scroll<%= val.name_id %> panel-collapse collapse<% if count == 0 %> in <% end %>" role="tabpanel" aria-labelledby="headingOne">
 					      <div class="panel-body">
 					      	<h5 class="wherewhen"><%= val.where %> - <%= val.when %></h5>
-					      	<%= image_tag val.avatar.url(:large) %>
+					      	<% if val.avatar.file? %>
+						      	<%= image_tag val.avatar.url(:large) %>
+					      	<% end %>
 					        <%= simple_format(val.copy) %>
 					        <%= simple_format(val.bio) %>
 					      </div>
