@@ -473,7 +473,11 @@ fieldset[disabled] .btn-grey.active {
 				<a class="mobile-show-hide">Show Map Legend</a>
 				<% @artists.each do |val| %>
 					<% if val.lat != "" && val.long != "" %>
-				        <li id="<%= val.name_id %>"><%= val.name %></li>
+						<% if val.name == 'makingout.la present' %>
+					        <li id="<%= val.name_id %>"><%= val.title %></li>
+						<% else %>
+					        <li id="<%= val.name_id %>"><%= val.name %></li>
+				        <% end %>
 			        <% end %>
 		        <% end %>
 			  </ul>
