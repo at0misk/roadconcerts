@@ -658,10 +658,9 @@ fieldset[disabled] .btn-grey.active {
 		    infowindow.close();
 		    infowindow.setContent(contentString<%= val.id %>);
 		    infowindow.open(map, marker<%= val.id %>);
-		    if(jQuery.browser.mobile)
-			{
-			    $('.mobile-show-hide').click();
-			}
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				    $('.mobile-show-hide').click();
+				}
 		    });
 		    marker<%= val.id %>.addListener('click', function(){
 			    infowindow.close();
