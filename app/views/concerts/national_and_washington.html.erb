@@ -142,6 +142,9 @@
 		color: #ececec;
 		text-decoration: none;
 	}
+	.mobile-show-hide{
+		display: none;
+	}
 @media only screen and (max-width: 768px) {
 	.img-overlay{
 		margin-top: 0%;
@@ -154,6 +157,12 @@
 	}
 	.body-col p{
 		text-align: unset;
+	}
+	#legend li{
+		display: none;
+	}
+	.mobile-show-hide{
+		display: block;
 	}
 
 }
@@ -458,6 +467,7 @@ fieldset[disabled] .btn-grey.active {
 			<div id="map">
 			</div>
 			<ul id="legend">
+				<a class="mobile-show-hide">Show Map Legend</a>
 				<% @artists.each do |val| %>
 					<% if val.lat != "" && val.long != "" %>
 				        <li id="<%= val.name_id %>"><%= val.name %></li>
@@ -641,6 +651,7 @@ fieldset[disabled] .btn-grey.active {
 		    infowindow.close();
 		    infowindow.setContent(contentString<%= val.id %>);
 		    infowindow.open(map, marker<%= val.id %>);
+		    $('.mobile-show-hide').click();
 		    });
 		    marker<%= val.id %>.addListener('click', function(){
 			    infowindow.close();
@@ -720,6 +731,23 @@ fieldset[disabled] .btn-grey.active {
 		    scrollTop: $('#thanks').offset().top-100
 		}, 500);
 <% end %>
+
+var show = true;
+
+$('.mobile-show-hide').click(function(){
+	if(show == true){
+		$(this).text('Hide Map Legend');
+		$('#legend li').show();
+		show = false;
+	}
+	else{
+		$(this).text('Show Map Legend');
+		$('#legend li').hide();
+		show = true;
+	}
+
+})
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-n3Bj4NngwQhrVi_vTrFVwNSEMHP8UAw&callback=initMap" async defer></script>
 
