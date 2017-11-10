@@ -550,6 +550,10 @@ fieldset[disabled] .btn-grey.active {
 							     		<p>Watch <a href="https://vimeo.com/162703003" target="_blank">Here</a></p>
 							     		<p>Password: ColdPlanet</p>
 							     	</span>
+							     <% elsif val.id == 81 %>
+							     	<span class="downloadable-links">
+						      			<p><%= link_to "Citizen Cartographer: Autopsies of the Self and the City", asset_path('CitizenCartographer.final.vena.pdf') %></p>
+							     	</span>
 							     <% end %>
 						        <%= simple_format(val.bio) %>
 						      </div>
