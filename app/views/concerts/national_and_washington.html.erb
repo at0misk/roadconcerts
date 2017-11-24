@@ -612,13 +612,13 @@ fieldset[disabled] .btn-grey.active {
             <form action='/mail' method='post' data-remote="false" id='mailerform'>
             <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
               <div class="form-group">
-			    <input type="text" name="first" class="form-control" id="first_name" placeholder="First Name">
+			    <input type="text" name="first" class="form-control" id="first_name" placeholder="First Name" required>
 			  </div>
               <div class="form-group">
-			    <input type="text" name="last" class="form-control" id="last_name" placeholder="Last Name">
+			    <input type="text" name="last" class="form-control" id="last_name" placeholder="Last Name" required>
 			  </div>
 			  <div class="form-group">
-			    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+			    <input type="text" name="email" class="form-control" id="email" placeholder="Email" required>
 			  </div>
 			  <div class="form-group">
 				<div class="g-recaptcha" data-sitekey="6LctSjoUAAAAAFpZADkXA4iaKvSzzHijuwseD4lV"></div>
