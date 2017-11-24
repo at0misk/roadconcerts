@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Raleway" rel="stylesheet">
 <meta name="viewport" content="width=device-width">
 <script src="https://use.fontawesome.com/dc91d56b6c.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style type="text/css">
 	*{
 		font-family: 'Open Sans', sans-serif;
@@ -362,6 +363,10 @@ fieldset[disabled] .btn-grey.active {
 	height: auto;
 }
 
+.g-recaptcha div{
+	margin: 0px auto;
+}
+
 </style>
 <!-- <div class="row top-row">
 	<div class="row navigation-row">
@@ -589,13 +594,13 @@ fieldset[disabled] .btn-grey.active {
 					  <% end %>
 				  <% end %>
 				</div>
-				<hr/ id="mailinglist">
+				<hr/>
 			</div>
 			<div class="col-sm-2">
 			</div>
 		</div>
 	<% end %>
-	<div class="row body-row mailing-row">
+	<div class="row body-row mailing-row"  id="mailinglist">
 		<div class="col-sm-4">
 		</div>
 		<div class="col-sm-4">
@@ -614,6 +619,9 @@ fieldset[disabled] .btn-grey.active {
 			  </div>
 			  <div class="form-group">
 			    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+			  </div>
+			  <div class="form-group">
+				<div class="g-recaptcha" data-sitekey="6LctSjoUAAAAAFpZADkXA4iaKvSzzHijuwseD4lV"></div>
 			  </div>
               <button class="btn btn-grey" type="submit" name="action">JOIN</button>
             </form>
