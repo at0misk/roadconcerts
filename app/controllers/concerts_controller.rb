@@ -7,6 +7,7 @@ class ConcertsController < ApplicationController
   def mail
     if verify_recaptcha
       if has_digits?(params['first']) || has_digits?(params['last'])
+        redirect_to "/"
       else
       	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
       	redirect_to "/"
