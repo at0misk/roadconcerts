@@ -36,7 +36,7 @@ class ConcertsController < ApplicationController
           })
         puts JSON.parse(req)
         json = JSON.parse(req)
-        if json.success
+        if json['success']
           puts "===SUCCESS==="
         end
       end
