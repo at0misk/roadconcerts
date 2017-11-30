@@ -1,7 +1,6 @@
 require 'open-uri'
 require 'net/http'
 require 'net/https'
-require 'rest-client'
 
 class ConcertsController < ApplicationController
   def index
@@ -14,26 +13,19 @@ class ConcertsController < ApplicationController
       if has_digits?(params['first']) || has_digits?(params['last'])
         redirect_to "/"
       else
-        # uri = URI('https://www.google.com/recaptcha/api/siteverify')
-        # req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
-        # req.body = {secret: '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', response: params['g-recaptcha-response'], remoteip: request.remote_ip}.to_json
-        # res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
-        #   response = http.request(req)
-        # end
-        # case res
-        #   when Net::HTTPSuccess, Net::HTTPRedirection
-        #       UserMailer.email(params['first'], params['last'], params['email']).deliver_now
-        #       redirect_to "/"
-        #       flash[:thanks] = true
-        #   else
-        #     # res.value
-        # end
-        @response = RestClient.post 'https://www.google.com/recaptcha/api/siteverify', {secret: '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', response: params['g-recaptcha-response'], remoteip: request.remote_ip}
-        @json = JSON.parse @response
-        if @json.success
-            UserMailer.email(params['first'], params['last'], params['email']).deliver_now
-            redirect_to "/"
-            flash[:thanks] = true
+        uri = URI('https://www.google.com/recaptcha/api/siteverify')
+        req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
+        req.body = {secret: '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', response: params['g-recaptcha-response'], remoteip: request.remote_ip}.to_json
+        res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
+          response = http.request(req)
+        end
+        case res
+          when Net::HTTPSuccess, Net::HTTPRedirection
+              UserMailer.email(params['first'], params['last'], params['email']).deliver_now
+              redirect_to "/"
+              flash[:thanks] = true
+          else
+            # res.value
         end
       end
     end
