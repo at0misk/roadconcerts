@@ -17,12 +17,12 @@ class ConcertsController < ApplicationController
         req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
         req.body = {secret: '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', response: params['g-recaptcha-response'], remoteip: request.remote_ip}.to_json
         res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
-          http.request(req)
-        end
-        if res.success
-          UserMailer.email(params['first'], params['last'], params['email']).deliver_now
-          redirect_to "/"
-          flash[:thanks] = true
+          response = http.request(req)
+          if response.body.success
+            UserMailer.email(params['first'], params['last'], params['email']).deliver_now
+            redirect_to "/"
+            flash[:thanks] = true
+          end
         end
       end
     end
