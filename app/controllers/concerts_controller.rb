@@ -6,7 +6,8 @@ class ConcertsController < ApplicationController
   end
   def mail
     if verify_recaptcha
-      if !has_digits?(params['first']) || !has_digits?(params['last'])
+      if has_digits?(params['first']) || has_digits?(params['last'])
+      else
       	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
       	redirect_to "/"
         flash[:thanks] = true
