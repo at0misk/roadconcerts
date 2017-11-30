@@ -35,6 +35,10 @@ class ConcertsController < ApplicationController
             :remoteip => request.remote_ip
           })
         puts JSON.parse(req)
+        json = JSON.parse(req)
+        if json.success
+          puts "===SUCCESS==="
+        end
       end
     end
   end
