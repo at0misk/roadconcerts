@@ -29,7 +29,7 @@ class ConcertsController < ApplicationController
         #     # res.value
         # end
         puts params['g-recaptcha-response']
-        req = HTTP.post('https://www.google.com/recaptcha/api/siteverify', :json => {
+        req = HTTP.post('https://www.google.com/recaptcha/api/siteverify', :form => {
             :secret => '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', 
             :response => params['g-recaptcha-response'], 
             :remoteip => request.remote_ip
