@@ -21,7 +21,7 @@ class ConcertsController < ApplicationController
         end
         case res
           when Net::HTTPSuccess, Net::HTTPRedirection
-              json = JSON.parse(response)
+              json = JSON.parse(response.body)
               puts "!!!========================================================================!!!"
               puts json['response']
               UserMailer.email(params['first'], params['last'], params['email']).deliver_now
