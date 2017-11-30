@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'net/http'
 require 'net/https'
-# require 'rest-client'
+require 'rest-client'
 
 class ConcertsController < ApplicationController
   def index
