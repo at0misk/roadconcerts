@@ -125,6 +125,8 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
+    recaptcha (4.6.2)
+      json
     sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -178,6 +180,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   rails
+  recaptcha
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

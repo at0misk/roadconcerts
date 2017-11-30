@@ -5,9 +5,11 @@ class ConcertsController < ApplicationController
    render :layout => false
   end
   def mail
-  	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
-  	redirect_to "/"
-    flash[:thanks] = true
+    if verify_recaptcha
+    	UserMailer.email(params['first'], params['last'], params['email']).deliver_now
+    	redirect_to "/"
+      flash[:thanks] = true
+    end
   end
   def remembrance
   end
