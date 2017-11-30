@@ -1,4 +1,6 @@
 require 'open-uri'
+require 'net/http'
+require 'net/https'
 
 class ConcertsController < ApplicationController
   def index
@@ -13,9 +15,9 @@ class ConcertsController < ApplicationController
       else
         uri = URI('https://www.google.com/recaptcha/api/siteverify')
         req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
+        req.use_ssl = true
         req.body = {secret: '6LctSjoUAAAAAA_kEmZYXo-CmK0Eob-sZX4CPr1E', response: params['g-recaptcha-response'], remoteip: request.remote_ip}.to_json
         res = Net::HTTP.start(uri.hostname, uri.port) do |http|
-          http.use_ssl = true
           http.request(req)
         end
         if res.success
