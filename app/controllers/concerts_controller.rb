@@ -21,6 +21,8 @@ class ConcertsController < ApplicationController
         end
         case res
           when Net::HTTPSuccess, Net::HTTPRedirection
+              json = JSON.parse(response)
+              puts json['response']
               UserMailer.email(params['first'], params['last'], params['email']).deliver_now
               redirect_to "/"
               flash[:thanks] = true
