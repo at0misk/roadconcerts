@@ -36,8 +36,11 @@ class ConcertsController < ApplicationController
           })
         puts JSON.parse(req)
         json = JSON.parse(req)
-        if json['success']
+        if json['success'] == true 
           puts "===SUCCESS==="
+          UserMailer.email(params['first'], params['last'], params['email']).deliver_now
+          redirect_to "/"
+          flash[:thanks] = true
         end
       end
     end
