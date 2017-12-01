@@ -10,7 +10,7 @@ class ConcertsController < ApplicationController
    render :layout => false
   end
   def mail
-    if verify_recaptcha
+    # if verify_recaptcha
       if has_digits?(params['first']) || has_digits?(params['last'])
         redirect_to "/"
       else
@@ -43,7 +43,7 @@ class ConcertsController < ApplicationController
           flash[:thanks] = true
         end
       end
-    end
+    # end
   end
   def remembrance
   end
